@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -11,25 +10,26 @@
 <title>NUMVOID — BREACH PROTOCOL</title>
 
 <!-- Inline SVG Favicon: cyan void circle with crosshair -->
-
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230e0e0e'/><circle cx='16' cy='16' r='12' fill='none' stroke='%2381ecff' stroke-width='2'/><circle cx='16' cy='16' r='4' fill='%2381ecff'/><line x1='16' y1='2' x2='16' y2='10' stroke='%2381ecff' stroke-width='2'/><line x1='16' y1='22' x2='16' y2='30' stroke='%2381ecff' stroke-width='2'/><line x1='2' y1='16' x2='10' y2='16' stroke='%2381ecff' stroke-width='2'/><line x1='22' y1='16' x2='30' y2='16' stroke='%2381ecff' stroke-width='2'/></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' fill='%230e0e0e' rx='40'/><circle cx='90' cy='90' r='68' fill='none' stroke='%2381ecff' stroke-width='10'/><circle cx='90' cy='90' r='22' fill='%2381ecff'/><line x1='90' y1='10' x2='90' y2='58' stroke='%2381ecff' stroke-width='10'/><line x1='90' y1='122' x2='90' y2='170' stroke='%2381ecff' stroke-width='10'/><line x1='10' y1='90' x2='58' y2='90' stroke='%2381ecff' stroke-width='10'/><line x1='122' y1='90' x2='170' y2='90' stroke='%2381ecff' stroke-width='10'/></svg>">
 
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/peerjs@1.4.7/dist/peerjs.min.js"></script>
 
+
+
 <style>
 /* ═══ ROOT & RESET ═══ */
 :root{
---bg:#0e0e0e;--surface:#131313;--sc:#1a1a1a;--shi:#20201f;--stop:#262626;
---pri:#81ecff;--pdim:#00d4ec;--pc:#00e3fd;
---sec:#bc87fe;--secc:#5e289b;--ter:#9f8eff;
---err:#ff6e84;--errd:#d73357;--warn:#ffd166;
---os:#e8e8e8;--mut:#adaaaa;--out:#484847;
---coin:#ffd166;--touch:44px;
-/* rank colors */
---rank-bronze:#c0a060;--rank-silver:#d0d0d0;--rank-gold:#ffd166;
---rank-diamond:#7df9ff;--rank-elite:#ff6ef4;
+  --bg:#0e0e0e;--surface:#131313;--sc:#1a1a1a;--shi:#20201f;--stop:#262626;
+  --pri:#81ecff;--pdim:#00d4ec;--pc:#00e3fd;
+  --sec:#bc87fe;--secc:#5e289b;--ter:#9f8eff;
+  --err:#ff6e84;--errd:#d73357;--warn:#ffd166;
+  --os:#e8e8e8;--mut:#adaaaa;--out:#484847;
+  --coin:#ffd166;--touch:44px;
+  /* rank colors */
+  --rank-bronze:#c0a060;--rank-silver:#d0d0d0;--rank-gold:#ffd166;
+  --rank-diamond:#7df9ff;--rank-elite:#ff6ef4;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;height:100%;}
@@ -57,82 +57,82 @@ input[type=number]{-moz-appearance:textfield;}
 
 /* ═══ REDESIGNED CONTROL BAR ═══ */
 #ctrl-bar{
-position:fixed;bottom:0;right:0;z-index:999999;
-display:flex;align-items:center;gap:6px;
-padding:8px 14px 10px;
-background:rgba(10,10,10,.96);
-border-top:1px solid rgba(129,236,255,.15);
-border-left:1px solid rgba(129,236,255,.15);
-backdrop-filter:blur(8px);
--webkit-backdrop-filter:blur(8px);
+  position:fixed;bottom:0;right:0;z-index:999999;
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px 10px;
+  background:rgba(10,10,10,.96);
+  border-top:1px solid rgba(129,236,255,.15);
+  border-left:1px solid rgba(129,236,255,.15);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
 }
 /* Holographic scan-line on ctrl-bar */
 #ctrl-bar::before{
-content:'';position:absolute;inset:0;
-background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(129,236,255,.03) 3px,rgba(129,236,255,.03) 4px);
-pointer-events:none;
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(129,236,255,.03) 3px,rgba(129,236,255,.03) 4px);
+  pointer-events:none;
 }
 .ctrl-btn{
-background:rgba(26,26,26,.9);
-border:1px solid rgba(129,236,255,.25);
-color:var(--mut);
-font-family:'JetBrains Mono',monospace;
-font-size:16px;
-cursor:pointer;border-radius:0;
-min-height:42px;min-width:42px;
-display:flex;align-items:center;justify-content:center;
-touch-action:manipulation;
-position:relative;
-transition:border-color .15s,color .15s,box-shadow .15s;
-overflow:hidden;
+  background:rgba(26,26,26,.9);
+  border:1px solid rgba(129,236,255,.25);
+  color:var(--mut);
+  font-family:'JetBrains Mono',monospace;
+  font-size:16px;
+  cursor:pointer;border-radius:0;
+  min-height:42px;min-width:42px;
+  display:flex;align-items:center;justify-content:center;
+  touch-action:manipulation;
+  position:relative;
+  transition:border-color .15s,color .15s,box-shadow .15s;
+  overflow:hidden;
 }
 /* Ripple hover overlay */
 .ctrl-btn::after{
-content:'';position:absolute;inset:0;
-background:radial-gradient(circle,rgba(129,236,255,.15) 0%,transparent 70%);
-opacity:0;transition:opacity .2s;
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle,rgba(129,236,255,.15) 0%,transparent 70%);
+  opacity:0;transition:opacity .2s;
 }
 .ctrl-btn:hover::after{opacity:1;}
 .ctrl-btn:active{transform:scale(.92);}
 .ctrl-btn.active{
-border-color:rgba(129,236,255,.6);
-color:var(--pri);
-box-shadow:0 0 8px rgba(129,236,255,.25),inset 0 0 8px rgba(129,236,255,.05);
+  border-color:rgba(129,236,255,.6);
+  color:var(--pri);
+  box-shadow:0 0 8px rgba(129,236,255,.25),inset 0 0 8px rgba(129,236,255,.05);
 }
 .ctrl-btn.muted-sfx{
-border-color:rgba(255,110,132,.5);
-color:var(--err);
-box-shadow:0 0 6px rgba(255,110,132,.2);
+  border-color:rgba(255,110,132,.5);
+  color:var(--err);
+  box-shadow:0 0 6px rgba(255,110,132,.2);
 }
 .ctrl-btn.muted-bgm{
-border-color:rgba(255,209,102,.5);
-color:var(--warn);
-box-shadow:0 0 6px rgba(255,209,102,.2);
+  border-color:rgba(255,209,102,.5);
+  color:var(--warn);
+  box-shadow:0 0 6px rgba(255,209,102,.2);
 }
 /* Volume slider */
 .vol-wrap{display:flex;align-items:center;gap:6px;padding:0 4px;}
 .vol-icon{font-size:14px;color:var(--mut);}
 #vol-slider{
-width:64px;height:3px;
--webkit-appearance:none;
-background:linear-gradient(to right,var(--pri) var(--val,50%),rgba(72,72,71,.6) var(--val,50%));
-outline:none;border-radius:0;cursor:pointer;
+  width:64px;height:3px;
+  -webkit-appearance:none;
+  background:linear-gradient(to right,var(--pri) var(--val,50%),rgba(72,72,71,.6) var(--val,50%));
+  outline:none;border-radius:0;cursor:pointer;
 }
 #vol-slider::-webkit-slider-thumb{
--webkit-appearance:none;width:12px;height:12px;
-background:var(--pri);cursor:pointer;border-radius:0;
-box-shadow:0 0 6px rgba(129,236,255,.5);
+  -webkit-appearance:none;width:12px;height:12px;
+  background:var(--pri);cursor:pointer;border-radius:0;
+  box-shadow:0 0 6px rgba(129,236,255,.5);
 }
 #vol-slider::-moz-range-thumb{
-width:12px;height:12px;background:var(--pri);
-cursor:pointer;border-radius:0;border:none;
-box-shadow:0 0 6px rgba(129,236,255,.5);
+  width:12px;height:12px;background:var(--pri);
+  cursor:pointer;border-radius:0;border:none;
+  box-shadow:0 0 6px rgba(129,236,255,.5);
 }
 /* Mobile ctrl-bar */
 @media(max-width:480px){
-#ctrl-bar{padding:6px 10px 8px;gap:4px;}
-.ctrl-btn{min-height:38px;min-width:38px;font-size:14px;}
-#vol-slider{width:50px;}
+  #ctrl-bar{padding:6px 10px 8px;gap:4px;}
+  .ctrl-btn{min-height:38px;min-width:38px;font-size:14px;}
+  #vol-slider{width:50px;}
 }
 
 /* ═══ ACHIEVEMENT TOASTS ═══ */
@@ -468,57 +468,57 @@ box-shadow:0 0 6px rgba(129,236,255,.5);
 
 /* ═══ MOBILE BREAKPOINTS ═══ */
 @media(max-width:480px){
-.btn{font-size:12px;letter-spacing:1px;padding:12px 16px;}
-.btn-sm{padding:10px 12px;font-size:10px;}
-.title-save-bar{gap:8px;padding:8px 12px;}
-.tsb-val{font-size:15px;}.tsb-label{font-size:6px;}.tsb-sep{height:24px;}
-.bet-presets{grid-template-columns:repeat(2,1fr);}
-.mp-arena{grid-template-columns:1fr;}
-.win-stats{grid-template-columns:1fr 1fr;}
-.finale-breakdown{grid-template-columns:repeat(3,1fr);}
-.ach-grid{grid-template-columns:1fr;}
-.hud-center{gap:6px;}.hud-stat-val{font-size:13px;}.streak-hud{display:none;}
-.game-btns{flex-direction:column;}
-.arsenal-btns{display:grid;grid-template-columns:1fr 1fr;}
-#ctrl-bar{padding:7px 10px;gap:3px;}
-#vol-slider{width:48px;}
-.ctrl-btn{font-size:8px;padding:7px 8px;}
-#ach-toast-wrap{max-width:220px;}
+  .btn{font-size:12px;letter-spacing:1px;padding:12px 16px;}
+  .btn-sm{padding:10px 12px;font-size:10px;}
+  .title-save-bar{gap:8px;padding:8px 12px;}
+  .tsb-val{font-size:15px;}.tsb-label{font-size:6px;}.tsb-sep{height:24px;}
+  .bet-presets{grid-template-columns:repeat(2,1fr);}
+  .mp-arena{grid-template-columns:1fr;}
+  .win-stats{grid-template-columns:1fr 1fr;}
+  .finale-breakdown{grid-template-columns:repeat(3,1fr);}
+  .ach-grid{grid-template-columns:1fr;}
+  .hud-center{gap:6px;}.hud-stat-val{font-size:13px;}.streak-hud{display:none;}
+  .game-btns{flex-direction:column;}
+  .arsenal-btns{display:grid;grid-template-columns:1fr 1fr;}
+  #ctrl-bar{padding:7px 10px;gap:3px;}
+  #vol-slider{width:48px;}
+  .ctrl-btn{font-size:8px;padding:7px 8px;}
+  #ach-toast-wrap{max-width:220px;}
 }
 @media(max-width:360px){
-.title-save-bar{flex-direction:column;gap:4px;}.tsb-sep{display:none;}
-.game-title{font-size:44px;}
-.hud{flex-wrap:wrap;}.hud-right{flex-basis:100%;}
-.win-stats{grid-template-columns:1fr;}
+  .title-save-bar{flex-direction:column;gap:4px;}.tsb-sep{display:none;}
+  .game-title{font-size:44px;}
+  .hud{flex-wrap:wrap;}.hud-right{flex-basis:100%;}
+  .win-stats{grid-template-columns:1fr;}
 }
 @media(prefers-reduced-motion:reduce){
-*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
 }
 
 /* ════════════════════════════════════════════
-SPACESHIP / OUTER SPACE THEME — v9.1
-Deep space control panel aesthetic with:
-- Nebula gradient background layers
-- Holographic glassmorphism panels
-- Neon glow borders & scan-lines
-- Animated starfield (canvas handles this)
-- HUD-style data readouts
+   SPACESHIP / OUTER SPACE THEME — v9.1
+   Deep space control panel aesthetic with:
+   - Nebula gradient background layers
+   - Holographic glassmorphism panels
+   - Neon glow borders & scan-lines
+   - Animated starfield (canvas handles this)
+   - HUD-style data readouts
 ════════════════════════════════════════════ */
 
 /* ── DEEP SPACE BACKGROUND ── */
 body{
-background:radial-gradient(ellipse 140% 80% at 50% 0%,#0a0520 0%,#070b1a 35%,#0e0e0e 100%) !important;
+  background:radial-gradient(ellipse 140% 80% at 50% 0%,#0a0520 0%,#070b1a 35%,#0e0e0e 100%) !important;
 }
 
 /* Nebula overlay: two large radial color blobs */
 body::before{
-content:'';position:fixed;inset:0;
-background:
-radial-gradient(ellipse 60% 40% at 15% 20%,rgba(60,0,120,.18) 0%,transparent 70%),
-radial-gradient(ellipse 50% 35% at 85% 75%,rgba(0,80,160,.14) 0%,transparent 65%),
-radial-gradient(ellipse 40% 50% at 60% 10%,rgba(0,180,200,.07) 0%,transparent 60%),
-repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.12) 2px,rgba(0,0,0,.12) 4px);
-pointer-events:none;z-index:2;
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 20%,rgba(60,0,120,.18) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 35% at 85% 75%,rgba(0,80,160,.14) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 50% at 60% 10%,rgba(0,180,200,.07) 0%,transparent 60%),
+    repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.12) 2px,rgba(0,0,0,.12) 4px);
+  pointer-events:none;z-index:2;
 }
 
 /* ── GLASSMORPHISM PANELS ── */
@@ -526,96 +526,96 @@ pointer-events:none;z-index:2;
 .win-container,.over-container,.bet-wrap,.shop-wrap,.ach-wrap,
 .lb-wrap,.mp-wrap,.mp-game-wrap,.finale-container,
 .win-stat,.bet-preview-card,.mp-panel,.mp-overlay-inner {
-backdrop-filter:blur(4px);
--webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
 }
 
 /* ── NEON PANEL BORDERS ── */
 .game-main{
-border:1px solid rgba(129,236,255,.12);
-box-shadow:0 0 24px rgba(129,236,255,.04),inset 0 1px 0 rgba(129,236,255,.08);
+  border:1px solid rgba(129,236,255,.12);
+  box-shadow:0 0 24px rgba(129,236,255,.04),inset 0 1px 0 rgba(129,236,255,.08);
 }
 .hud{
-border-left:3px solid var(--pri);
-border-top:1px solid rgba(129,236,255,.15);
-border-right:1px solid rgba(129,236,255,.06);
-border-bottom:1px solid rgba(129,236,255,.06);
-box-shadow:0 0 20px rgba(129,236,255,.06);
+  border-left:3px solid var(--pri);
+  border-top:1px solid rgba(129,236,255,.15);
+  border-right:1px solid rgba(129,236,255,.06);
+  border-bottom:1px solid rgba(129,236,255,.06);
+  box-shadow:0 0 20px rgba(129,236,255,.06);
 }
 .mp-panel{
-border:1px solid rgba(129,236,255,.1);
-box-shadow:0 0 16px rgba(129,236,255,.04);
+  border:1px solid rgba(129,236,255,.1);
+  box-shadow:0 0 16px rgba(129,236,255,.04);
 }
 
 /* ── SPACESHIP HUD DATA-READOUT STYLE ── */
 .hud-level{
-text-shadow:0 0 8px rgba(129,236,255,.6);
-letter-spacing:4px;
+  text-shadow:0 0 8px rgba(129,236,255,.6);
+  letter-spacing:4px;
 }
 .range-val{
-text-shadow:0 0 8px rgba(188,135,254,.5);
+  text-shadow:0 0 8px rgba(188,135,254,.5);
 }
 .win-headline,.game-title{
-text-shadow:0 0 30px rgba(129,236,255,.4),0 0 60px rgba(129,236,255,.15);
+  text-shadow:0 0 30px rgba(129,236,255,.4),0 0 60px rgba(129,236,255,.15);
 }
 
 /* ── CORNER NOTCH decorators on game-main ── */
 .game-main::after{
-content:'';position:absolute;
-bottom:0;right:0;
-width:16px;height:16px;
-border-bottom:2px solid rgba(129,236,255,.3);
-border-right:2px solid rgba(129,236,255,.3);
+  content:'';position:absolute;
+  bottom:0;right:0;
+  width:16px;height:16px;
+  border-bottom:2px solid rgba(129,236,255,.3);
+  border-right:2px solid rgba(129,236,255,.3);
 }
 
 /* ── SCAN-LINE sweep on game-main (subtle) ── */
 @keyframes scanSweep{
-0%{top:-100%;}
-100%{top:200%;}
+  0%{top:-100%;}
+  100%{top:200%;}
 }
 .game-main .scan-sweep{
-position:absolute;left:0;right:0;height:2px;
-background:linear-gradient(transparent,rgba(129,236,255,.08),transparent);
-animation:scanSweep 4s linear infinite;
-pointer-events:none;z-index:5;
+  position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(transparent,rgba(129,236,255,.08),transparent);
+  animation:scanSweep 4s linear infinite;
+  pointer-events:none;z-index:5;
 }
 
 /* ── BUTTON HOVER GLOW (enhanced) ── */
 .btn-primary:hover{
-box-shadow:0 0 16px rgba(129,236,255,.4),0 4px 0 #007b8f;
+  box-shadow:0 0 16px rgba(129,236,255,.4),0 4px 0 #007b8f;
 }
 .btn-mp:hover{
-box-shadow:0 0 16px rgba(159,142,255,.4),0 4px 0 #4a1a8f;
+  box-shadow:0 0 16px rgba(159,142,255,.4),0 4px 0 #4a1a8f;
 }
 .btn-coin:hover{
-box-shadow:0 0 16px rgba(255,209,102,.35),0 4px 0 #8a6500;
+  box-shadow:0 0 16px rgba(255,209,102,.35),0 4px 0 #8a6500;
 }
 .btn-danger:hover{
-box-shadow:0 0 16px rgba(255,110,132,.35),0 4px 0 #7a1a28;
+  box-shadow:0 0 16px rgba(255,110,132,.35),0 4px 0 #7a1a28;
 }
 
 /* ── ARSENAL BUTTONS ── */
 .arsenal-btn:hover{
-box-shadow:0 0 12px rgba(159,142,255,.4);
+  box-shadow:0 0 12px rgba(159,142,255,.4);
 }
 
 /* ── TERMINAL INPUT glow when focused ── */
 .terminal-input-row:focus-within{
-border-color:rgba(129,236,255,.8);
-box-shadow:0 4px 0 rgba(129,236,255,.1);
+  border-color:rgba(129,236,255,.8);
+  box-shadow:0 4px 0 rgba(129,236,255,.1);
 }
 
 /* ── HEALTH BAR enhanced ── */
 .health-seg{
-box-shadow:0 0 4px rgba(0,212,236,.3);
+  box-shadow:0 0 4px rgba(0,212,236,.3);
 }
 .health-seg.danger{
-box-shadow:0 0 6px rgba(215,51,87,.5);
+  box-shadow:0 0 6px rgba(215,51,87,.5);
 }
 
 /* ── GUESS CHIPS subtle glow ── */
 .chip:hover{
-box-shadow:0 0 10px rgba(159,142,255,.3);
+  box-shadow:0 0 10px rgba(159,142,255,.3);
 }
 
 /* ── DIRECTION ARROWS enhanced ── */
@@ -624,66 +624,65 @@ box-shadow:0 0 10px rgba(159,142,255,.3);
 
 /* ── WRONG GUESS SHAKE (enhanced red pulse) ── */
 .terminal-input-row.err{
-border-color:var(--err);
-box-shadow:0 0 16px rgba(255,110,132,.3);
-animation:iJitter .3s steps(4,end),errPulse .3s ease;
+  border-color:var(--err);
+  box-shadow:0 0 16px rgba(255,110,132,.3);
+  animation:iJitter .3s steps(4,end),errPulse .3s ease;
 }
 @keyframes errPulse{
-0%{box-shadow:0 0 0 rgba(255,110,132,0);}
-50%{box-shadow:0 0 24px rgba(255,110,132,.4);}
-100%{box-shadow:0 0 0 rgba(255,110,132,0);}
+  0%{box-shadow:0 0 0 rgba(255,110,132,0);}
+  50%{box-shadow:0 0 24px rgba(255,110,132,.4);}
+  100%{box-shadow:0 0 0 rgba(255,110,132,0);}
 }
 
 /* ── WIN SCREEN starfield effect ── */
 #screen-win::before{
-content:'';position:absolute;inset:0;
-background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(129,236,255,.06) 0%,transparent 60%);
-pointer-events:none;z-index:0;animation:winGlow 3s ease-in-out infinite;
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(129,236,255,.06) 0%,transparent 60%);
+  pointer-events:none;z-index:0;animation:winGlow 3s ease-in-out infinite;
 }
 @keyframes winGlow{0%,100%{opacity:.5}50%{opacity:1}}
 .win-container{position:relative;z-index:5;}
 
 /* ── FINALE SCREEN ── */
 .finale-score-val{
-text-shadow:0 0 60px rgba(129,236,255,.4),0 0 100px rgba(129,236,255,.15);
+  text-shadow:0 0 60px rgba(129,236,255,.4),0 0 100px rgba(129,236,255,.15);
 }
 
 /* ── OVER SCREEN dark ambience ── */
 #screen-gameover::before{
-content:'';position:absolute;inset:0;
-background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(215,51,87,.08) 0%,transparent 65%);
-pointer-events:none;z-index:0;
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(215,51,87,.08) 0%,transparent 65%);
+  pointer-events:none;z-index:0;
 }
 .over-container{position:relative;z-index:5;}
 
 /* ── RANK BADGE elite pulse enhanced ── */
 .rank-elite{
-animation:elitePulse 1.5s ease-in-out infinite,eliteShimmer 3s linear infinite;
+  animation:elitePulse 1.5s ease-in-out infinite,eliteShimmer 3s linear infinite;
 }
 @keyframes eliteShimmer{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
 /* ── TITLE neon glow enhanced ── */
 #screen-title .title-grid-bg{
-background-image:
-linear-gradient(rgba(129,236,255,.05) 1px,transparent 1px),
-linear-gradient(90deg,rgba(129,236,255,.05) 1px,transparent 1px),
-radial-gradient(ellipse 100% 100% at 50% 50%,rgba(60,0,120,.2) 0%,transparent 70%);
-background-size:32px 32px,32px 32px,100% 100%;
+  background-image:
+    linear-gradient(rgba(129,236,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(129,236,255,.05) 1px,transparent 1px),
+    radial-gradient(ellipse 100% 100% at 50% 50%,rgba(60,0,120,.2) 0%,transparent 70%);
+  background-size:32px 32px,32px 32px,100% 100%;
 }
 
 /* ── MOBILE optimisations ── */
 @media(max-width:480px){
-body{
-background:radial-gradient(ellipse 200% 100% at 50% 0%,#0a0520 0%,#0e0e0e 60%) !important;
-}
+  body{
+    background:radial-gradient(ellipse 200% 100% at 50% 0%,#0a0520 0%,#0e0e0e 60%) !important;
+  }
 }
 
 </style>
-
 </head>
 <body>
 <canvas id="particle-canvas"></canvas>
@@ -692,1188 +691,1179 @@ background:radial-gradient(ellipse 200% 100% at 50% 0%,#0a0520 0%,#0e0e0e 60%) !
 <div id="ach-toast-wrap"></div>
 
 <!-- CONTROL BAR: SFX + BGM + Volume (redesigned) -->
-
 <div id="ctrl-bar">
-<button class="ctrl-btn active" id="sfx-btn" onclick="toggleSFX()" title="Sound Effects">
-<!-- speaker icon: active = full speaker, muted = X -->
-<span id="sfx-icon">🔊</span>
-</button>
-<button class="ctrl-btn active" id="bgm-btn" onclick="toggleBGM()" title="Background Music">
-<span id="bgm-icon">🎵</span>
-</button>
-<div class="vol-wrap">
-<span class="vol-icon">🔉</span>
-<input type="range" id="vol-slider" min="0" max="100" value="50"
-oninput="setVolume(this.value);updateVolSliderGradient(this.value)" title="Master Volume">
-</div>
+  <button class="ctrl-btn active" id="sfx-btn" onclick="toggleSFX()" title="Sound Effects">
+    <!-- speaker icon: active = full speaker, muted = X -->
+    <span id="sfx-icon">🔊</span>
+  </button>
+  <button class="ctrl-btn active" id="bgm-btn" onclick="toggleBGM()" title="Background Music">
+    <span id="bgm-icon">🎵</span>
+  </button>
+  <div class="vol-wrap">
+    <span class="vol-icon">🔉</span>
+    <input type="range" id="vol-slider" min="0" max="100" value="50"
+      oninput="setVolume(this.value);updateVolSliderGradient(this.value)" title="Master Volume">
+  </div>
 </div>
 
 <!-- TITLE -->
-
 <div id="screen-title" class="screen active">
-<div class="title-grid-bg"></div>
-<div class="title-wrap">
-<div class="title-eyebrow">// BREACH PROTOCOL ULTIMATE v9 //</div>
-<div style="position:relative;display:inline-block;">
-<div class="game-title">NUMVOID</div>
-<div class="glitch-layer">NUMVOID</div>
-</div>
-<div class="title-sub"><span>CRACK THE CODE.</span> BREACH THE VOID.</div>
-<div class="title-save-bar">
-<div class="tsb-item"><div class="tsb-val gold" id="title-coins">0</div><div class="tsb-label">◈ Coins</div></div>
-<div class="tsb-sep"></div>
-<div class="tsb-item"><div class="tsb-val cyan" id="title-streak">0</div><div class="tsb-label">Best Streak</div></div>
-<div class="tsb-sep"></div>
-<div class="tsb-item"><div class="tsb-val purple" id="title-ach">0/30</div><div class="tsb-label">Tiers</div></div>
-<div class="tsb-sep"></div>
-<div class="tsb-item"><div class="tsb-val gold" id="title-runs">0</div><div class="tsb-label">Full Runs</div></div>
-</div>
-<div class="name-row">
-<span class="name-label">CALLSIGN:</span>
-<input class="name-input" id="player-name-input" maxlength="12" placeholder="AGENT" oninput="saveName()" autocomplete="off" spellcheck="false"/>
-</div>
-<div class="mode-row">
-<button class="mode-btn" id="time-toggle" onclick="toggleTimeAttack()">[ ⏱ TIME ATTACK: OFF ]</button>
-</div>
-<div class="title-btns">
-<button class="btn btn-primary" onclick="startGame()">[ INITIATE ]</button>
-<button class="btn btn-mp btn-sm" onclick="goMultiplayer()">[ ◑ 1v1 ]</button>
-<button class="btn btn-coin btn-sm" onclick="goShop()">[ ◈ SHOP ]</button>
-<button class="btn btn-ghost btn-sm" onclick="goAchievements()">[ ★ LOG ]</button>
-</div>
-<div style="margin-top:8px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">
-<button class="btn btn-ghost btn-sm" onclick="confirmReset()" style="font-size:9px;opacity:.4;">[ RESET SAVE ]</button>
-</div>
-</div>
+  <div class="title-grid-bg"></div>
+  <div class="title-wrap">
+    <div class="title-eyebrow">// BREACH PROTOCOL ULTIMATE v9 //</div>
+    <div style="position:relative;display:inline-block;">
+      <div class="game-title">NUMVOID</div>
+      <div class="glitch-layer">NUMVOID</div>
+    </div>
+    <div class="title-sub"><span>CRACK THE CODE.</span> BREACH THE VOID.</div>
+    <div class="title-save-bar">
+      <div class="tsb-item"><div class="tsb-val gold" id="title-coins">0</div><div class="tsb-label">◈ Coins</div></div>
+      <div class="tsb-sep"></div>
+      <div class="tsb-item"><div class="tsb-val cyan" id="title-streak">0</div><div class="tsb-label">Best Streak</div></div>
+      <div class="tsb-sep"></div>
+      <div class="tsb-item"><div class="tsb-val purple" id="title-ach">0/30</div><div class="tsb-label">Tiers</div></div>
+      <div class="tsb-sep"></div>
+      <div class="tsb-item"><div class="tsb-val gold" id="title-runs">0</div><div class="tsb-label">Full Runs</div></div>
+    </div>
+    <div class="name-row">
+      <span class="name-label">CALLSIGN:</span>
+      <input class="name-input" id="player-name-input" maxlength="12" placeholder="AGENT" oninput="saveName()" autocomplete="off" spellcheck="false"/>
+    </div>
+    <div class="mode-row">
+      <button class="mode-btn" id="time-toggle" onclick="toggleTimeAttack()">[ ⏱ TIME ATTACK: OFF ]</button>
+    </div>
+    <div class="title-btns">
+      <button class="btn btn-primary" onclick="startGame()">[ INITIATE ]</button>
+      <button class="btn btn-mp btn-sm" onclick="goMultiplayer()">[ ◑ 1v1 ]</button>
+      <button class="btn btn-coin btn-sm" onclick="goShop()">[ ◈ SHOP ]</button>
+      <button class="btn btn-ghost btn-sm" onclick="goAchievements()">[ ★ LOG ]</button>
+    </div>
+    <div style="margin-top:8px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn btn-ghost btn-sm" onclick="confirmReset()" style="font-size:9px;opacity:.4;">[ RESET SAVE ]</button>
+    </div>
+  </div>
 </div>
 
 <!-- BET / PRE-LEVEL -->
-
 <div id="screen-bet" class="screen">
-<div class="bet-wrap">
-<div class="bet-header"><div class="bet-title">PRE-LEVEL BRIEFING</div><div class="bet-sub" id="bet-level-info">LEVEL 01</div></div>
-<div class="bet-fee-warning" id="bet-fee-warn">⚠ ENTRY FEE: <span id="bet-fee-amt">0</span> COINS REQUIRED</div>
-<div class="bet-info">
-<div><div class="bet-info-label">YOUR COINS</div><div class="bet-info-val" style="color:var(--coin)" id="bet-coins-display">0 ◈</div></div>
-<div style="text-align:right"><div class="bet-info-label">TARGET RANGE</div><div class="bet-info-val" id="bet-range-info" style="color:var(--sec)">1–50</div></div>
-</div>
-<div class="bet-section">
-<div class="bet-section-label">PLACE YOUR BET</div>
-<div class="bet-presets">
-<button class="bet-preset active" data-amt="0" onclick="setBetPreset(0)">NO BET</button>
-<button class="bet-preset" data-amt="10" onclick="setBetPreset(10)">10 ◈</button>
-<button class="bet-preset" data-amt="25" onclick="setBetPreset(25)">25 ◈</button>
-<button class="bet-preset" data-amt="50" onclick="setBetPreset(50)">50 ◈</button>
-<button class="bet-preset" data-amt="100" onclick="setBetPreset(100)">100 ◈</button>
-<button class="bet-preset" data-amt="9999" onclick="setBetPreset(9999)">ALL-IN</button>
-</div>
-<div class="bet-cap-note">Bets capped at 200 ◈ max — win pays 1.5x, lose forfeits bet</div>
-<div class="bet-preview">
-<div class="bet-preview-card bet-preview-win"><div class="bet-preview-label w">WIN PAYOUT</div><div class="bet-preview-val w" id="bet-win-preview">+0 ◈</div></div>
-<div class="bet-preview-card bet-preview-lose"><div class="bet-preview-label l">LOSE COST</div><div class="bet-preview-val l" id="bet-loss-preview">-0 ◈</div></div>
-</div>
-</div>
-<div class="bet-btns">
-<button class="btn btn-primary" onclick="confirmBetAndPlay()">[ ENTER ARENA ]</button>
-<button class="btn btn-ghost" onclick="goMenu()">[ ABORT ]</button>
-</div>
-</div>
+  <div class="bet-wrap">
+    <div class="bet-header"><div class="bet-title">PRE-LEVEL BRIEFING</div><div class="bet-sub" id="bet-level-info">LEVEL 01</div></div>
+    <div class="bet-fee-warning" id="bet-fee-warn">⚠ ENTRY FEE: <span id="bet-fee-amt">0</span> COINS REQUIRED</div>
+    <div class="bet-info">
+      <div><div class="bet-info-label">YOUR COINS</div><div class="bet-info-val" style="color:var(--coin)" id="bet-coins-display">0 ◈</div></div>
+      <div style="text-align:right"><div class="bet-info-label">TARGET RANGE</div><div class="bet-info-val" id="bet-range-info" style="color:var(--sec)">1–50</div></div>
+    </div>
+    <div class="bet-section">
+      <div class="bet-section-label">PLACE YOUR BET</div>
+      <div class="bet-presets">
+        <button class="bet-preset active" data-amt="0" onclick="setBetPreset(0)">NO BET</button>
+        <button class="bet-preset" data-amt="10" onclick="setBetPreset(10)">10 ◈</button>
+        <button class="bet-preset" data-amt="25" onclick="setBetPreset(25)">25 ◈</button>
+        <button class="bet-preset" data-amt="50" onclick="setBetPreset(50)">50 ◈</button>
+        <button class="bet-preset" data-amt="100" onclick="setBetPreset(100)">100 ◈</button>
+        <button class="bet-preset" data-amt="9999" onclick="setBetPreset(9999)">ALL-IN</button>
+      </div>
+      <div class="bet-cap-note">Bets capped at 200 ◈ max — win pays 1.5x, lose forfeits bet</div>
+      <div class="bet-preview">
+        <div class="bet-preview-card bet-preview-win"><div class="bet-preview-label w">WIN PAYOUT</div><div class="bet-preview-val w" id="bet-win-preview">+0 ◈</div></div>
+        <div class="bet-preview-card bet-preview-lose"><div class="bet-preview-label l">LOSE COST</div><div class="bet-preview-val l" id="bet-loss-preview">-0 ◈</div></div>
+      </div>
+    </div>
+    <div class="bet-btns">
+      <button class="btn btn-primary" onclick="confirmBetAndPlay()">[ ENTER ARENA ]</button>
+      <button class="btn btn-ghost" onclick="goMenu()">[ ABORT ]</button>
+    </div>
+  </div>
 </div>
 
 <!-- SHOP -->
-
 <div id="screen-shop" class="screen">
-<div class="shop-wrap">
-<div class="shop-header">
-<div><div class="shop-title">VOID MARKET</div><div style="font-size:8px;letter-spacing:3px;color:var(--mut);margin-top:3px;text-transform:uppercase;">BREACH COIN EXCHANGE</div></div>
-<div style="text-align:right"><div class="shop-coins-disp" id="shop-coins-display">◈ 0</div><div class="shop-coins-label">COINS</div></div>
-</div>
-<div class="shop-items" id="shop-items-list"></div>
-<div style="font-size:9px;color:var(--mut);text-align:center;margin-bottom:14px;letter-spacing:1px;">PRICES +12% PER LEVEL. STOCK LIMITED.</div>
-<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;"><button class="btn btn-ghost" onclick="goBack()">[ BACK ]</button></div>
-</div>
+  <div class="shop-wrap">
+    <div class="shop-header">
+      <div><div class="shop-title">VOID MARKET</div><div style="font-size:8px;letter-spacing:3px;color:var(--mut);margin-top:3px;text-transform:uppercase;">BREACH COIN EXCHANGE</div></div>
+      <div style="text-align:right"><div class="shop-coins-disp" id="shop-coins-display">◈ 0</div><div class="shop-coins-label">COINS</div></div>
+    </div>
+    <div class="shop-items" id="shop-items-list"></div>
+    <div style="font-size:9px;color:var(--mut);text-align:center;margin-bottom:14px;letter-spacing:1px;">PRICES +12% PER LEVEL. STOCK LIMITED.</div>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;"><button class="btn btn-ghost" onclick="goBack()">[ BACK ]</button></div>
+  </div>
 </div>
 
 <!-- ACHIEVEMENTS -->
-
 <div id="screen-achievements" class="screen">
-<div class="ach-wrap">
-<div class="ach-header"><div class="ach-title">BREACH LOG</div><div class="ach-subtitle" id="ach-progress-label">0 / 30 TIERS UNLOCKED</div></div>
-<div class="ach-grid" id="ach-grid"></div>
-<div style="display:flex;justify-content:center;"><button class="btn btn-ghost" onclick="goBack()">[ BACK ]</button></div>
+  <div class="ach-wrap">
+    <div class="ach-header"><div class="ach-title">BREACH LOG</div><div class="ach-subtitle" id="ach-progress-label">0 / 30 TIERS UNLOCKED</div></div>
+    <div class="ach-grid" id="ach-grid"></div>
+    <div style="display:flex;justify-content:center;"><button class="btn btn-ghost" onclick="goBack()">[ BACK ]</button></div>
+  </div>
 </div>
-</div>
+
+
 
 <!-- MULTIPLAYER LOBBY -->
-
 <div id="screen-mp-lobby" class="screen">
-<div class="mp-wrap">
-<div class="mp-header"><div class="mp-title">1v1 BREACH</div><div class="mp-sub">REAL-TIME — REQUIRES INTERNET</div></div>
-<div class="mp-status" id="mp-status"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span>&nbsp;INITIALISING...</div>
-<div class="mp-section">
-<div class="mp-section-title">CREATE ROOM</div>
-<div class="mp-code-display" id="mp-room-code">------</div>
-<div class="mp-code-label">SHARE THIS CODE WITH YOUR OPPONENT</div>
-<div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
-<button class="btn btn-mp btn-sm" onclick="mpCreateRoom()">[ CREATE ROOM ]</button>
-<button class="btn btn-ghost btn-sm" id="mp-copy-btn" onclick="mpCopyCode()" style="display:none;">[ COPY CODE ]</button>
-</div>
-</div>
-<div class="mp-section">
-<div class="mp-section-title">JOIN ROOM</div>
-<div class="mp-join-row">
-<input class="mp-join-input" id="mp-join-input" maxlength="6" placeholder="ENTER CODE" oninput="this.value=this.value.toUpperCase()" autocomplete="off" inputmode="text"/>
-<button class="btn btn-mp btn-sm" onclick="mpJoinRoom()">JOIN</button>
-</div>
-</div>
-<div class="mp-note">Both players need internet. Host validates all guesses — guests cannot cheat.<br>Uses WebRTC (PeerJS) — works on mobile + desktop.</div>
-<div style="display:flex;justify-content:center;"><button class="btn btn-ghost" onclick="goMenu()">[ BACK ]</button></div>
-</div>
+  <div class="mp-wrap">
+    <div class="mp-header"><div class="mp-title">1v1 BREACH</div><div class="mp-sub">REAL-TIME — REQUIRES INTERNET</div></div>
+    <div class="mp-status" id="mp-status"><span class="mp-dot"></span><span class="mp-dot"></span><span class="mp-dot"></span>&nbsp;INITIALISING...</div>
+    <div class="mp-section">
+      <div class="mp-section-title">CREATE ROOM</div>
+      <div class="mp-code-display" id="mp-room-code">------</div>
+      <div class="mp-code-label">SHARE THIS CODE WITH YOUR OPPONENT</div>
+      <div style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-mp btn-sm" onclick="mpCreateRoom()">[ CREATE ROOM ]</button>
+        <button class="btn btn-ghost btn-sm" id="mp-copy-btn" onclick="mpCopyCode()" style="display:none;">[ COPY CODE ]</button>
+      </div>
+    </div>
+    <div class="mp-section">
+      <div class="mp-section-title">JOIN ROOM</div>
+      <div class="mp-join-row">
+        <input class="mp-join-input" id="mp-join-input" maxlength="6" placeholder="ENTER CODE" oninput="this.value=this.value.toUpperCase()" autocomplete="off" inputmode="text"/>
+        <button class="btn btn-mp btn-sm" onclick="mpJoinRoom()">JOIN</button>
+      </div>
+    </div>
+    <div class="mp-note">Both players need internet. Host validates all guesses — guests cannot cheat.<br>Uses WebRTC (PeerJS) — works on mobile + desktop.</div>
+    <div style="display:flex;justify-content:center;"><button class="btn btn-ghost" onclick="goMenu()">[ BACK ]</button></div>
+  </div>
 </div>
 
 <!-- MULTIPLAYER GAME -->
-
 <div id="screen-mp-game" class="screen" style="position:relative;">
-<div class="mp-game-wrap">
-<div class="mp-game-hud">
-<div class="mp-game-title">1v1 BREACH</div>
-<div style="font-size:9px;letter-spacing:2px;color:var(--mut);" id="mp-game-range">RANGE: 1–200</div>
-<button class="btn btn-ghost btn-sm" onclick="mpQuit()">QUIT</button>
-</div>
-<div class="mp-arena">
-<div class="mp-panel">
-<div class="mp-panel-header">
-<div class="mp-panel-name me" id="mp-my-name">YOU</div>
-<div class="mp-panel-att" id="mp-my-att">ATT: 10</div>
-</div>
-<div class="mp-dir wt" id="mp-my-dir">?</div>
-<div class="mp-panel-chips" id="mp-my-chips"><span style="font-size:8px;color:var(--mut);">NO GUESSES</span></div>
-<div class="mp-input-row">
-<input type="number" class="mp-input" id="mp-my-input" placeholder="0" onkeydown="mpHandleKey(event)" autocomplete="off" inputmode="numeric"/>
-<div class="mp-cursor"></div>
-</div>
-<button class="btn btn-primary btn-sm" onclick="mpSubmitGuess()" style="margin-top:7px;width:100%;">[ SUBMIT ]</button>
-</div>
-<div class="mp-panel">
-<div class="mp-panel-header">
-<div class="mp-panel-name opp" id="mp-opp-name">OPPONENT</div>
-<div class="mp-panel-att" id="mp-opp-att">ATT: 10</div>
-</div>
-<div class="mp-dir wt" id="mp-opp-dir">?</div>
-<div class="mp-panel-chips" id="mp-opp-chips"><span style="font-size:8px;color:var(--mut);">WAITING...</span></div>
-<div style="font-size:8px;letter-spacing:2px;color:var(--mut);text-align:center;margin-top:10px;text-transform:uppercase;" id="mp-opp-status">Watching their moves...</div>
-</div>
-</div>
-<div class="mp-win-overlay" id="mp-win-overlay">
-<div class="mp-overlay-inner">
-<div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,8vw,44px);font-weight:900;text-transform:uppercase;" id="mp-overlay-headline">WINNER</div>
-<div style="font-size:11px;letter-spacing:4px;color:var(--mut);margin-top:7px;margin-bottom:20px;text-transform:uppercase;" id="mp-overlay-sub">GAME OVER</div>
-<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
-<button class="btn btn-sec btn-sm" onclick="mpRequestRematch()">[ REMATCH ]</button>
-<button class="btn btn-ghost btn-sm" onclick="mpQuit()">[ LEAVE ]</button>
-</div>
-</div>
-</div>
-</div>
+  <div class="mp-game-wrap">
+    <div class="mp-game-hud">
+      <div class="mp-game-title">1v1 BREACH</div>
+      <div style="font-size:9px;letter-spacing:2px;color:var(--mut);" id="mp-game-range">RANGE: 1–200</div>
+      <button class="btn btn-ghost btn-sm" onclick="mpQuit()">QUIT</button>
+    </div>
+    <div class="mp-arena">
+      <div class="mp-panel">
+        <div class="mp-panel-header">
+          <div class="mp-panel-name me" id="mp-my-name">YOU</div>
+          <div class="mp-panel-att" id="mp-my-att">ATT: 10</div>
+        </div>
+        <div class="mp-dir wt" id="mp-my-dir">?</div>
+        <div class="mp-panel-chips" id="mp-my-chips"><span style="font-size:8px;color:var(--mut);">NO GUESSES</span></div>
+        <div class="mp-input-row">
+          <input type="number" class="mp-input" id="mp-my-input" placeholder="0" onkeydown="mpHandleKey(event)" autocomplete="off" inputmode="numeric"/>
+          <div class="mp-cursor"></div>
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="mpSubmitGuess()" style="margin-top:7px;width:100%;">[ SUBMIT ]</button>
+      </div>
+      <div class="mp-panel">
+        <div class="mp-panel-header">
+          <div class="mp-panel-name opp" id="mp-opp-name">OPPONENT</div>
+          <div class="mp-panel-att" id="mp-opp-att">ATT: 10</div>
+        </div>
+        <div class="mp-dir wt" id="mp-opp-dir">?</div>
+        <div class="mp-panel-chips" id="mp-opp-chips"><span style="font-size:8px;color:var(--mut);">WAITING...</span></div>
+        <div style="font-size:8px;letter-spacing:2px;color:var(--mut);text-align:center;margin-top:10px;text-transform:uppercase;" id="mp-opp-status">Watching their moves...</div>
+      </div>
+    </div>
+    <div class="mp-win-overlay" id="mp-win-overlay">
+      <div class="mp-overlay-inner">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,8vw,44px);font-weight:900;text-transform:uppercase;" id="mp-overlay-headline">WINNER</div>
+        <div style="font-size:11px;letter-spacing:4px;color:var(--mut);margin-top:7px;margin-bottom:20px;text-transform:uppercase;" id="mp-overlay-sub">GAME OVER</div>
+        <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn btn-sec btn-sm" onclick="mpRequestRematch()">[ REMATCH ]</button>
+          <button class="btn btn-ghost btn-sm" onclick="mpQuit()">[ LEAVE ]</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- GAME -->
-
 <div id="screen-game" class="screen">
-<div class="game-container">
-<div class="hud" id="hud">
-<div>
-<div class="hud-level" id="hud-level-num">LEVEL 01</div>
-<div class="hud-level-name" id="hud-level-name">BOOT SEQUENCE</div>
-</div>
-<div class="hud-center">
-<div class="hud-stat"><div class="hud-stat-val" id="hud-score">0</div><div class="hud-stat-label">Score</div></div>
-<div class="hud-sep"></div>
-<div class="hud-stat"><div class="hud-stat-val gold" id="hud-coins">0</div><div class="hud-stat-label">◈ Coins</div></div>
-<div class="hud-sep"></div>
-<div class="streak-hud" id="hud-streak"></div>
-</div>
-<div class="hud-right"><div class="hud-att-label">Attempts</div><div class="health-bar" id="health-bar"></div></div>
-</div>
-<div class="timer-row" id="timer-row">
-<div class="timer-label">TIME</div>
-<div class="timer-bar" id="timer-bar"></div>
-<div class="timer-val" id="timer-val">45</div>
-</div>
-<div class="range-display"><div class="range-label">Target Range</div><div class="range-val" id="range-display">1 — 50</div></div>
-<div class="game-main" id="game-main"><div class="scan-sweep"></div>
-<div class="direction-display">
-<div class="direction-arrow dir-w" id="dir-arrow">?</div>
-<div class="direction-text dir-w" id="dir-text">ENTER YOUR FIRST GUESS</div>
-</div>
-<div class="reveal-display" id="reveal-display"><div class="reveal-label">PARTIAL DECODE</div><div class="reveal-val" id="reveal-display-val">_ _ _</div></div>
-<div class="terminal-wrap">
-<div class="terminal-prompt"><span>></span> INPUT GUESS:</div>
-<div class="terminal-input-row" id="input-row">
-<span class="terminal-prefix">_</span>
-<input type="number" class="terminal-input" id="guess-input" placeholder="0" min="1" autocomplete="off" inputmode="numeric" onkeydown="handleKey(event)"/>
-<div class="terminal-cursor"></div>
-</div>
-<div class="terminal-msg" id="terminal-msg"></div>
-</div>
-<div class="game-btns">
-<button class="btn btn-primary" onclick="submitGuess()">[ SUBMIT ]</button>
-<button class="btn btn-ghost" onclick="goMenu()">[ MENU ]</button>
-</div>
-</div>
-<div class="arsenal" id="arsenal">
-<div class="arsenal-label">◈ ARSENAL</div>
-<div class="arsenal-btns">
-<button class="arsenal-btn" id="btn-hint" onclick="useHint()"><span>◈ HINT</span><span class="ab" id="badge-hints">0</span></button>
-<button class="arsenal-btn" id="btn-attempt" onclick="useExtraAttempt()"><span>▲ +ATT</span><span class="ab" id="badge-attempts">0</span></button>
-<button class="arsenal-btn" id="btn-reveal" onclick="useReveal()"><span>◉ REVEAL</span><span class="ab" id="badge-reveals">0</span></button>
-<button class="arsenal-btn" id="btn-freeze" onclick="useTimeFreeze()"><span>⏱ FREEZE</span><span class="ab" id="badge-freeze">0</span></button>
-</div>
-</div>
-<div class="history-section">
-<div class="history-label">Scan History</div>
-<div class="chips-wrap" id="chips-wrap"><span style="font-size:9px;color:var(--mut);letter-spacing:2px;">NO SCANS YET</span></div>
-</div>
-</div>
+  <div class="game-container">
+    <div class="hud" id="hud">
+      <div>
+        <div class="hud-level" id="hud-level-num">LEVEL 01</div>
+        <div class="hud-level-name" id="hud-level-name">BOOT SEQUENCE</div>
+      </div>
+      <div class="hud-center">
+        <div class="hud-stat"><div class="hud-stat-val" id="hud-score">0</div><div class="hud-stat-label">Score</div></div>
+        <div class="hud-sep"></div>
+        <div class="hud-stat"><div class="hud-stat-val gold" id="hud-coins">0</div><div class="hud-stat-label">◈ Coins</div></div>
+        <div class="hud-sep"></div>
+        <div class="streak-hud" id="hud-streak"></div>
+      </div>
+      <div class="hud-right"><div class="hud-att-label">Attempts</div><div class="health-bar" id="health-bar"></div></div>
+    </div>
+    <div class="timer-row" id="timer-row">
+      <div class="timer-label">TIME</div>
+      <div class="timer-bar" id="timer-bar"></div>
+      <div class="timer-val" id="timer-val">45</div>
+    </div>
+    <div class="range-display"><div class="range-label">Target Range</div><div class="range-val" id="range-display">1 — 50</div></div>
+    <div class="game-main" id="game-main"><div class="scan-sweep"></div>
+      <div class="direction-display">
+        <div class="direction-arrow dir-w" id="dir-arrow">?</div>
+        <div class="direction-text dir-w" id="dir-text">ENTER YOUR FIRST GUESS</div>
+      </div>
+      <div class="reveal-display" id="reveal-display"><div class="reveal-label">PARTIAL DECODE</div><div class="reveal-val" id="reveal-display-val">_ _ _</div></div>
+      <div class="terminal-wrap">
+        <div class="terminal-prompt"><span>></span> INPUT GUESS:</div>
+        <div class="terminal-input-row" id="input-row">
+          <span class="terminal-prefix">_</span>
+          <input type="number" class="terminal-input" id="guess-input" placeholder="0" min="1" autocomplete="off" inputmode="numeric" onkeydown="handleKey(event)"/>
+          <div class="terminal-cursor"></div>
+        </div>
+        <div class="terminal-msg" id="terminal-msg"></div>
+      </div>
+      <div class="game-btns">
+        <button class="btn btn-primary" onclick="submitGuess()">[ SUBMIT ]</button>
+        <button class="btn btn-ghost" onclick="goMenu()">[ MENU ]</button>
+      </div>
+    </div>
+    <div class="arsenal" id="arsenal">
+      <div class="arsenal-label">◈ ARSENAL</div>
+      <div class="arsenal-btns">
+        <button class="arsenal-btn" id="btn-hint" onclick="useHint()"><span>◈ HINT</span><span class="ab" id="badge-hints">0</span></button>
+        <button class="arsenal-btn" id="btn-attempt" onclick="useExtraAttempt()"><span>▲ +ATT</span><span class="ab" id="badge-attempts">0</span></button>
+        <button class="arsenal-btn" id="btn-reveal" onclick="useReveal()"><span>◉ REVEAL</span><span class="ab" id="badge-reveals">0</span></button>
+        <button class="arsenal-btn" id="btn-freeze" onclick="useTimeFreeze()"><span>⏱ FREEZE</span><span class="ab" id="badge-freeze">0</span></button>
+      </div>
+    </div>
+    <div class="history-section">
+      <div class="history-label">Scan History</div>
+      <div class="chips-wrap" id="chips-wrap"><span style="font-size:9px;color:var(--mut);letter-spacing:2px;">NO SCANS YET</span></div>
+    </div>
+  </div>
 </div>
 
 <!-- WIN -->
-
 <div id="screen-win" class="screen">
-<div class="win-container" id="win-container">
-<div class="win-tag">SYSTEM BREACH</div>
-<div class="win-headline" id="win-headline">ACCESS GRANTED</div>
-<div class="win-sub" id="win-sub">TARGET ELIMINATED</div>
-<div id="perfect-badge" class="perfect-badge" style="display:none;">★ PERFECT BREACH — FIRST GUESS ★</div>
-<div class="win-coins-earned" id="win-coins-earned">◈ +50 COINS</div>
-<div class="win-stats">
-<div class="win-stat"><div class="win-stat-val" id="win-score">0</div><div class="win-stat-label">Points</div></div>
-<div class="win-stat"><div class="win-stat-val sec" id="win-guesses">0</div><div class="win-stat-label">Guesses</div></div>
-<div class="win-stat"><div class="win-stat-val ter" id="win-number">0</div><div class="win-stat-label">Secret No.</div></div>
-</div>
-<div class="streak-display" id="win-streak-display" style="display:none;">
-<div class="streak-display-val" id="win-streak-val">▲ STREAK x3</div>
-<div class="streak-display-label">WIN STREAK BONUS ACTIVE</div>
-</div>
-<div class="win-btns">
-<button class="btn btn-primary" id="win-next-btn" onclick="nextLevel()">[ NEXT LEVEL ]</button>
-<button class="btn btn-coin btn-sm" onclick="goShopFromGame()">[ ◈ SHOP ]</button>
-<button class="btn btn-ghost" onclick="goMenu()">[ MENU ]</button>
-</div>
-</div>
+  <div class="win-container" id="win-container">
+    <div class="win-tag">SYSTEM BREACH</div>
+    <div class="win-headline" id="win-headline">ACCESS GRANTED</div>
+    <div class="win-sub" id="win-sub">TARGET ELIMINATED</div>
+    <div id="perfect-badge" class="perfect-badge" style="display:none;">★ PERFECT BREACH — FIRST GUESS ★</div>
+    <div class="win-coins-earned" id="win-coins-earned">◈ +50 COINS</div>
+    <div class="win-stats">
+      <div class="win-stat"><div class="win-stat-val" id="win-score">0</div><div class="win-stat-label">Points</div></div>
+      <div class="win-stat"><div class="win-stat-val sec" id="win-guesses">0</div><div class="win-stat-label">Guesses</div></div>
+      <div class="win-stat"><div class="win-stat-val ter" id="win-number">0</div><div class="win-stat-label">Secret No.</div></div>
+    </div>
+    <div class="streak-display" id="win-streak-display" style="display:none;">
+      <div class="streak-display-val" id="win-streak-val">▲ STREAK x3</div>
+      <div class="streak-display-label">WIN STREAK BONUS ACTIVE</div>
+    </div>
+    <div class="win-btns">
+      <button class="btn btn-primary" id="win-next-btn" onclick="nextLevel()">[ NEXT LEVEL ]</button>
+      <button class="btn btn-coin btn-sm" onclick="goShopFromGame()">[ ◈ SHOP ]</button>
+      <button class="btn btn-ghost" onclick="goMenu()">[ MENU ]</button>
+    </div>
+  </div>
 </div>
 
 <!-- GAME OVER -->
-
 <div id="screen-gameover" class="screen">
-<div class="over-container">
-<div class="over-tag">BREACH FAILED</div>
-<div class="over-headline" id="over-headline">CONNECTION LOST</div>
-<div class="over-sub" id="over-sub">SESSION TERMINATED</div>
-<div class="streak-lost" id="streak-lost"></div>
-<div class="penalty-notice" id="penalty-notice"></div>
-<div class="reveal-box"><div class="reveal-number" id="over-number">?</div></div>
-<div class="over-score">FINAL SCORE: <span id="over-score">0</span></div>
-<div class="over-btns">
-<button class="btn btn-danger" onclick="retryLevel()">[ RETRY ]</button>
-<button class="btn btn-coin btn-sm" onclick="goShopFromGame()">[ ◈ SHOP ]</button>
-<button class="btn btn-ghost" onclick="goMenu()">[ MENU ]</button>
-</div>
-</div>
+  <div class="over-container">
+    <div class="over-tag">BREACH FAILED</div>
+    <div class="over-headline" id="over-headline">CONNECTION LOST</div>
+    <div class="over-sub" id="over-sub">SESSION TERMINATED</div>
+    <div class="streak-lost" id="streak-lost"></div>
+    <div class="penalty-notice" id="penalty-notice"></div>
+    <div class="reveal-box"><div class="reveal-number" id="over-number">?</div></div>
+    <div class="over-score">FINAL SCORE: <span id="over-score">0</span></div>
+    <div class="over-btns">
+      <button class="btn btn-danger" onclick="retryLevel()">[ RETRY ]</button>
+      <button class="btn btn-coin btn-sm" onclick="goShopFromGame()">[ ◈ SHOP ]</button>
+      <button class="btn btn-ghost" onclick="goMenu()">[ MENU ]</button>
+    </div>
+  </div>
 </div>
 
 <!-- FINALE -->
-
 <div id="screen-finale" class="screen">
-<div class="finale-container">
-<div class="finale-tag">// ALL 5 SYSTEMS BREACHED //</div>
-<div class="finale-title">VOID MASTERED</div>
-<div class="finale-sub">FULL RUN COMPLETE</div>
-<div class="finale-score-display"><div class="finale-score-label">Total Score</div><div class="finale-score-val" id="finale-total">0</div></div>
-<div class="finale-rank-display" id="finale-rank-display"></div>
-<div class="finale-breakdown" id="finale-breakdown"></div>
-<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
-<button class="btn btn-primary" onclick="startGame()">[ PLAY AGAIN ]</button>
-<button class="btn btn-ghost" onclick="goMenu()">[ MENU ]</button>
-</div>
-</div>
+  <div class="finale-container">
+    <div class="finale-tag">// ALL 5 SYSTEMS BREACHED //</div>
+    <div class="finale-title">VOID MASTERED</div>
+    <div class="finale-sub">FULL RUN COMPLETE</div>
+    <div class="finale-score-display"><div class="finale-score-label">Total Score</div><div class="finale-score-val" id="finale-total">0</div></div>
+    <div class="finale-rank-display" id="finale-rank-display"></div>
+    <div class="finale-breakdown" id="finale-breakdown"></div>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
+      <button class="btn btn-primary" onclick="startGame()">[ PLAY AGAIN ]</button>
+      <button class="btn btn-ghost" onclick="goMenu()">[ MENU ]</button>
+    </div>
+  </div>
 </div>
 <script>
 'use strict';
 
 /* ═══════════════════════════════════════════
-PARTICLE SYSTEM
+   PARTICLE SYSTEM
 ═══════════════════════════════════════════ */
 (function(){
-const canvas=document.getElementById(‘particle-canvas’);
-const ctx=canvas.getContext(‘2d’);
-let W,H,particles=[];
-function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
-resize();window.addEventListener(‘resize’,resize);
-function mkP(){
-return{x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.3,
-vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
-alpha:Math.random()*.5+.1,hue:Math.random()<.7?‘129,236,255’:‘188,135,254’};
-}
-for(let i=0;i<80;i++)particles.push(mkP());
-let raf;
-function draw(){
-ctx.clearRect(0,0,W,H);
-particles.forEach(p=>{
-p.x+=p.vx;p.y+=p.vy;
-if(p.x<-5)p.x=W+5;if(p.x>W+5)p.x=-5;
-if(p.y<-5)p.y=H+5;if(p.y>H+5)p.y=-5;
-ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fillStyle=`rgba(${p.hue},${p.alpha})`;ctx.fill();
-});
-raf=requestAnimationFrame(draw);
-}
-draw();
-// Reduce particles on low-end by checking FPS
-let lastT=0,frames=0;
-function checkPerf(t){
-frames++;if(t-lastT>2000){
-const fps=frames/(( t-lastT)/1000);frames=0;lastT=t;
-if(fps<30&&particles.length>30)particles=particles.slice(0,30);
-}
-requestAnimationFrame(checkPerf);
-}
-requestAnimationFrame(checkPerf);
+  const canvas=document.getElementById('particle-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H,particles=[];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  function mkP(){
+    return{x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.3,
+      vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
+      alpha:Math.random()*.5+.1,hue:Math.random()<.7?'129,236,255':'188,135,254'};
+  }
+  for(let i=0;i<80;i++)particles.push(mkP());
+  let raf;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<-5)p.x=W+5;if(p.x>W+5)p.x=-5;
+      if(p.y<-5)p.y=H+5;if(p.y>H+5)p.y=-5;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${p.hue},${p.alpha})`;ctx.fill();
+    });
+    raf=requestAnimationFrame(draw);
+  }
+  draw();
+  // Reduce particles on low-end by checking FPS
+  let lastT=0,frames=0;
+  function checkPerf(t){
+    frames++;if(t-lastT>2000){
+      const fps=frames/(( t-lastT)/1000);frames=0;lastT=t;
+      if(fps<30&&particles.length>30)particles=particles.slice(0,30);
+    }
+    requestAnimationFrame(checkPerf);
+  }
+  requestAnimationFrame(checkPerf);
 })();
 
 /* ═══════════════════════════════════════════
-SOUND ENGINE (SFX)
+   SOUND ENGINE (SFX)
 ═══════════════════════════════════════════ */
 let audioCtx=null,masterGain=null,sfxGain=null,bgmGain=null;
 let audioUnlocked=false,sfxMuted=false,bgmMuted=false;
 let bgmEngine=null;
 
 function unlockAudio(){
-if(audioUnlocked)return;
-try{
-audioCtx=new(window.AudioContext||window.webkitAudioContext)();
-masterGain=audioCtx.createGain();masterGain.gain.value=.8;masterGain.connect(audioCtx.destination);
-sfxGain=audioCtx.createGain();sfxGain.gain.value=1;sfxGain.connect(masterGain);
-// BGM gets its own boost node before masterGain
-const bgmBoost=audioCtx.createGain();bgmBoost.gain.value=2.2;bgmBoost.connect(masterGain);
-bgmGain=audioCtx.createGain();bgmGain.gain.value=.7;bgmGain.connect(bgmBoost);
-(audioCtx.state===‘suspended’?audioCtx.resume():Promise.resolve()).then(()=>{
-audioUnlocked=true;
-const b=document.getElementById(‘sound-banner’);if(b){b.classList.add(‘hide’);setTimeout(()=>b.remove(),400);}
-// Start BGM with fade-in after unlock
-bgmEngine=new BGMEngine(audioCtx,bgmGain);bgmEngine.start();
-// Smooth fade in from silence
-bgmGain.gain.setValueAtTime(0,audioCtx.currentTime);
-bgmGain.gain.linearRampToValueAtTime(.7,audioCtx.currentTime+2.5);
-updateCtrlBar();
-// Play a soft confirmation tone so user knows audio is live
-setTimeout(()=>sfxBtn(),60);
-});
-}catch(e){console.warn(‘Audio:’,e);}
+  if(audioUnlocked)return;
+  try{
+    audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    masterGain=audioCtx.createGain();masterGain.gain.value=.8;masterGain.connect(audioCtx.destination);
+    sfxGain=audioCtx.createGain();sfxGain.gain.value=1;sfxGain.connect(masterGain);
+    // BGM gets its own boost node before masterGain
+    const bgmBoost=audioCtx.createGain();bgmBoost.gain.value=2.2;bgmBoost.connect(masterGain);
+    bgmGain=audioCtx.createGain();bgmGain.gain.value=.7;bgmGain.connect(bgmBoost);
+    (audioCtx.state==='suspended'?audioCtx.resume():Promise.resolve()).then(()=>{
+      audioUnlocked=true;
+      const b=document.getElementById('sound-banner');if(b){b.classList.add('hide');setTimeout(()=>b.remove(),400);}
+      // Start BGM with fade-in after unlock
+      bgmEngine=new BGMEngine(audioCtx,bgmGain);bgmEngine.start();
+      // Smooth fade in from silence
+      bgmGain.gain.setValueAtTime(0,audioCtx.currentTime);
+      bgmGain.gain.linearRampToValueAtTime(.7,audioCtx.currentTime+2.5);
+      updateCtrlBar();
+      // Play a soft confirmation tone so user knows audio is live
+      setTimeout(()=>sfxBtn(),60);
+    });
+  }catch(e){console.warn('Audio:',e);}
 }
 function toggleSFX(){sfxMuted=!sfxMuted;sfxGain&&(sfxGain.gain.value=sfxMuted?0:1);updateCtrlBar();sfxClick();}
 function toggleBGM(){bgmMuted=!bgmMuted;if(bgmGain){if(bgmMuted){bgmGain.gain.linearRampToValueAtTime?bgmGain.gain.setTargetAtTime(0,audioCtx.currentTime,.3):bgmGain.gain.value=0;}else{bgmGain.gain.setTargetAtTime(.7,audioCtx.currentTime,.3);}}updateCtrlBar();}
 function setVolume(v){if(masterGain){masterGain.gain.setTargetAtTime?masterGain.gain.setTargetAtTime(v/100*0.95+0.05,audioCtx.currentTime,.1):masterGain.gain.value=v/100;}}
 function updateCtrlBar(){
-const sb=document.getElementById(‘sfx-btn’),bb=document.getElementById(‘bgm-btn’);
-const si=document.getElementById(‘sfx-icon’),bi=document.getElementById(‘bgm-icon’);
-if(sb){sb.className=‘ctrl-btn’+(sfxMuted?’ muted-sfx’:’ active’);}
-if(bb){bb.className=‘ctrl-btn’+(bgmMuted?’ muted-bgm’:’ active’);}
-if(si)si.textContent=sfxMuted?‘🔇’:‘🔊’;
-if(bi)bi.textContent=bgmMuted?‘🎵’:‘🎶’;
+  const sb=document.getElementById('sfx-btn'),bb=document.getElementById('bgm-btn');
+  const si=document.getElementById('sfx-icon'),bi=document.getElementById('bgm-icon');
+  if(sb){sb.className='ctrl-btn'+(sfxMuted?' muted-sfx':' active');}
+  if(bb){bb.className='ctrl-btn'+(bgmMuted?' muted-bgm':' active');}
+  if(si)si.textContent=sfxMuted?'🔇':'🔊';
+  if(bi)bi.textContent=bgmMuted?'🎵':'🎶';
 }
 function updateVolSliderGradient(v){
-const s=document.getElementById(‘vol-slider’);
-if(s)s.style.setProperty(’–val’,v+’%’);
+  const s=document.getElementById('vol-slider');
+  if(s)s.style.setProperty('--val',v+'%');
 }
 // Audio unlock: pointerdown fires first on mobile (no 300ms delay)
-[‘pointerdown’,‘click’,‘keydown’,‘touchstart’].forEach(ev=>{
-document.addEventListener(ev,function h(){unlockAudio();document.removeEventListener(ev,h);},{passive:true});
+['pointerdown','click','keydown','touchstart'].forEach(ev=>{
+  document.addEventListener(ev,function h(){unlockAudio();document.removeEventListener(ev,h);},{passive:true});
 });
 function sO(t,fA,fB,d,dur,v){
-if(sfxMuted||!audioUnlocked||!audioCtx||!sfxGain)return;
-try{const now=audioCtx.currentTime,o=audioCtx.createOscillator(),g=audioCtx.createGain();
-o.type=t;o.frequency.setValueAtTime(fA,now+d);
-if(fB!==null)o.frequency.linearRampToValueAtTime(fB,now+d+dur);
-g.gain.setValueAtTime(Math.max(1e-4,v),now+d);g.gain.exponentialRampToValueAtTime(1e-4,now+d+dur);
-o.connect(g);g.connect(sfxGain);o.start(now+d);o.stop(now+d+dur+.02);}catch(_){}}
+  if(sfxMuted||!audioUnlocked||!audioCtx||!sfxGain)return;
+  try{const now=audioCtx.currentTime,o=audioCtx.createOscillator(),g=audioCtx.createGain();
+    o.type=t;o.frequency.setValueAtTime(fA,now+d);
+    if(fB!==null)o.frequency.linearRampToValueAtTime(fB,now+d+dur);
+    g.gain.setValueAtTime(Math.max(1e-4,v),now+d);g.gain.exponentialRampToValueAtTime(1e-4,now+d+dur);
+    o.connect(g);g.connect(sfxGain);o.start(now+d);o.stop(now+d+dur+.02);}catch(_){}}
 function sN(d,dur,v,hz){
-if(sfxMuted||!audioUnlocked||!audioCtx||!sfxGain)return;
-try{const now=audioCtx.currentTime,f=Math.ceil(audioCtx.sampleRate*(dur+.05)),
-buf=audioCtx.createBuffer(1,f,audioCtx.sampleRate),da=buf.getChannelData(0);
-for(let i=0;i<f;i++)da[i]=Math.random()*2-1;
-const src=audioCtx.createBufferSource(),flt=audioCtx.createBiquadFilter();
-src.buffer=buf;flt.type=‘bandpass’;flt.frequency.value=hz;flt.Q.value=.8;
-const g=audioCtx.createGain();g.gain.setValueAtTime(Math.max(1e-4,v),now+d);
-g.gain.exponentialRampToValueAtTime(1e-4,now+d+dur);
-src.connect(flt);flt.connect(g);g.connect(sfxGain);src.start(now+d);src.stop(now+d+dur+.02);}catch(_){}}
-function sfxKeyPress(){sO(‘square’,900,600,0,.03,.07);sN(0,.025,.04,3500);}
-function sfxSubmit(){sO(‘square’,200,80,0,.07,.18);sN(0,.07,.10,1000);sO(‘sine’,1100,700,.06,.14,.13);}
-function sfxHigher(){sO(‘sawtooth’,280,580,0,.13,.13);sO(‘sawtooth’,340,680,.08,.13,.09);sO(‘square’,420,840,.18,.14,.06);sN(.22,.08,.05,3000);}
-function sfxLower(){sO(‘sawtooth’,580,280,0,.13,.13);sO(‘sawtooth’,480,240,.08,.13,.09);sO(‘square’,420,210,.18,.14,.06);sN(.22,.08,.05,600);}
-function sfxInvalid(){sO(‘sawtooth’,180,180,0,.08,.28);sO(‘sawtooth’,190,190,.04,.08,.22);sO(‘sawtooth’,170,170,.08,.08,.18);sN(0,.14,.18,700);}
-function sfxDuplicate(){sO(‘square’,420,420,0,.05,.18);sO(‘square’,400,400,.07,.05,.14);sO(‘square’,380,380,.14,.05,.10);}
+  if(sfxMuted||!audioUnlocked||!audioCtx||!sfxGain)return;
+  try{const now=audioCtx.currentTime,f=Math.ceil(audioCtx.sampleRate*(dur+.05)),
+    buf=audioCtx.createBuffer(1,f,audioCtx.sampleRate),da=buf.getChannelData(0);
+    for(let i=0;i<f;i++)da[i]=Math.random()*2-1;
+    const src=audioCtx.createBufferSource(),flt=audioCtx.createBiquadFilter();
+    src.buffer=buf;flt.type='bandpass';flt.frequency.value=hz;flt.Q.value=.8;
+    const g=audioCtx.createGain();g.gain.setValueAtTime(Math.max(1e-4,v),now+d);
+    g.gain.exponentialRampToValueAtTime(1e-4,now+d+dur);
+    src.connect(flt);flt.connect(g);g.connect(sfxGain);src.start(now+d);src.stop(now+d+dur+.02);}catch(_){}}
+function sfxKeyPress(){sO('square',900,600,0,.03,.07);sN(0,.025,.04,3500);}
+function sfxSubmit(){sO('square',200,80,0,.07,.18);sN(0,.07,.10,1000);sO('sine',1100,700,.06,.14,.13);}
+function sfxHigher(){sO('sawtooth',280,580,0,.13,.13);sO('sawtooth',340,680,.08,.13,.09);sO('square',420,840,.18,.14,.06);sN(.22,.08,.05,3000);}
+function sfxLower(){sO('sawtooth',580,280,0,.13,.13);sO('sawtooth',480,240,.08,.13,.09);sO('square',420,210,.18,.14,.06);sN(.22,.08,.05,600);}
+function sfxInvalid(){sO('sawtooth',180,180,0,.08,.28);sO('sawtooth',190,190,.04,.08,.22);sO('sawtooth',170,170,.08,.08,.18);sN(0,.14,.18,700);}
+function sfxDuplicate(){sO('square',420,420,0,.05,.18);sO('square',400,400,.07,.05,.14);sO('square',380,380,.14,.05,.10);}
 /* sfxBtn — reliable button SFX that works on first tap (mobile safe).
-Handles: already-unlocked, suspended context, not-yet-unlocked. */
+   Handles: already-unlocked, suspended context, not-yet-unlocked. */
 function sfxBtn(){
-if(!audioCtx)return; // not unlocked yet — silent, user hasn’t interacted
-function *play(){
-if(sfxMuted)return;
-try{
-const now=audioCtx.currentTime;
-const o=audioCtx.createOscillator(),g=audioCtx.createGain();
-o.type=‘sine’;o.frequency.setValueAtTime(680,now);
-o.frequency.linearRampToValueAtTime(920,now+.06);
-g.gain.setValueAtTime(.22,now);g.gain.exponentialRampToValueAtTime(1e-4,now+.1);
-o.connect(g);g.connect(sfxGain);o.start(now);o.stop(now+.12);
-const o2=audioCtx.createOscillator(),g2=audioCtx.createGain();
-o2.type=‘square’;o2.frequency.value=1280;
-g2.gain.setValueAtTime(.07,now);g2.gain.exponentialRampToValueAtTime(1e-4,now+.045);
-o2.connect(g2);g2.connect(sfxGain);o2.start(now);o2.stop(now+.06);
-}catch(*){}
-}
-if(audioCtx.state===‘suspended’){audioCtx.resume().then(_play).catch(()=>{});}
-else{_play();}
+  if(!audioCtx)return; // not unlocked yet — silent, user hasn't interacted
+  function _play(){
+    if(sfxMuted)return;
+    try{
+      const now=audioCtx.currentTime;
+      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+      o.type='sine';o.frequency.setValueAtTime(680,now);
+      o.frequency.linearRampToValueAtTime(920,now+.06);
+      g.gain.setValueAtTime(.22,now);g.gain.exponentialRampToValueAtTime(1e-4,now+.1);
+      o.connect(g);g.connect(sfxGain);o.start(now);o.stop(now+.12);
+      const o2=audioCtx.createOscillator(),g2=audioCtx.createGain();
+      o2.type='square';o2.frequency.value=1280;
+      g2.gain.setValueAtTime(.07,now);g2.gain.exponentialRampToValueAtTime(1e-4,now+.045);
+      o2.connect(g2);g2.connect(sfxGain);o2.start(now);o2.stop(now+.06);
+    }catch(_){}
+  }
+  if(audioCtx.state==='suspended'){audioCtx.resume().then(_play).catch(()=>{});}
+  else{_play();}
 }
 function sfxClick(){sfxBtn();} // alias — all internal sfxClick() calls use sfxBtn
-function sfxDanger(){sO(‘square’,220,220,0,.09,.28);sO(‘square’,233,233,.12,.09,.22);sO(‘square’,220,220,.24,.09,.18);sN(0,.12,.09,550);}
-function sfxCoin(){sO(‘sine’,880,1100,0,.08,.15);sO(‘sine’,1100,1400,.07,.10,.10);sN(0,.06,.04,5000);}
-function sfxCantAfford(){sO(‘square’,300,200,0,.12,.2);sO(‘square’,280,180,.06,.12,.15);sN(0,.1,.1,600);}
-function sfxPurchase(){sO(‘sine’,600,900,0,.1,.18);sO(‘sine’,900,1200,.08,.1,.14);sO(‘sine’,1200,1500,.16,.12,.10);sN(.18,.08,.05,4000);}
-function sfxTimerTick(){sO(‘square’,440,440,0,.04,.12);}
-function sfxTimerWarn(){sO(‘square’,660,660,0,.06,.18);sO(‘square’,660,660,.1,.06,.14);}
-function sfxAch(){[659,784,988,1319].forEach((f,i)=>{sO(‘sine’,f,f,i*.1,.25,.18);sO(‘square’,f,null,i*.1,.08,.05);});sN(.45,.2,.06,4000);}
-function sfxLevelStart(){[200,300,420,620,850].forEach((f,i)=>sO(‘square’,f,f,i*.07,.06,.13));sO(‘sine’,1000,1000,.40,.20,.18);sN(.10,.12,.07,2000);}
-function sfxWin(){[523,659,784,1047,1319].forEach((f,i)=>{sO(‘sine’,f,f,i*.09,.38,.22);sO(‘square’,f,null,i*.09,.12,.05);});sN(.48,.28,.07,4000);sO(‘sine’,1047,1047,.50,.55,.18);sO(‘sine’,1319,1319,.50,.55,.14);sO(‘sine’,1568,1568,.50,.55,.10);}
-function sfxPerfect(){[523,659,784,1047,1319,1568,2093].forEach((f,i)=>{sO(‘sine’,f,f,i*.07,.50,.18);sO(‘triangle’,f*2,f*2,i*.07,.22,.06);});sO(‘sine’,2093,2093,.58,.70,.25);sO(‘sine’,2637,2637,.58,.70,.20);sN(0,.4,.05,6000);}
-function sfxGameOver(){[440,370,311,261,220,185].forEach((f,i)=>{sO(‘sawtooth’,f,f*.94,i*.13,.24,.18);sO(‘square’,f,null,i*.13,.10,.05);});sO(‘sine’,55,40,.10,.90,.30);sO(‘sine’,60,45,.10,.90,.22);sN(0,.55,.16,380);}
-function sfxFinale(){const c1=[261,330,392,523],c2=[293,370,440,587];c1.forEach(f=>sO(‘sawtooth’,f,f,0,.28,.13));c2.forEach(f=>sO(‘sawtooth’,f,f,.35,.28,.13));c1.forEach(f=>sO(‘sawtooth’,f,f,.70,.36,.13));[523,659,784,1047,1319,1568].forEach((f,i)=>sO(‘sine’,f,f,.85+i*.10,.40,.18));[523,659,784,1047,1319].forEach(f=>sO(‘sine’,f,f,1.55,1.40,.22));sN(1.55,.55,.10,2800);}
+function sfxDanger(){sO('square',220,220,0,.09,.28);sO('square',233,233,.12,.09,.22);sO('square',220,220,.24,.09,.18);sN(0,.12,.09,550);}
+function sfxCoin(){sO('sine',880,1100,0,.08,.15);sO('sine',1100,1400,.07,.10,.10);sN(0,.06,.04,5000);}
+function sfxCantAfford(){sO('square',300,200,0,.12,.2);sO('square',280,180,.06,.12,.15);sN(0,.1,.1,600);}
+function sfxPurchase(){sO('sine',600,900,0,.1,.18);sO('sine',900,1200,.08,.1,.14);sO('sine',1200,1500,.16,.12,.10);sN(.18,.08,.05,4000);}
+function sfxTimerTick(){sO('square',440,440,0,.04,.12);}
+function sfxTimerWarn(){sO('square',660,660,0,.06,.18);sO('square',660,660,.1,.06,.14);}
+function sfxAch(){[659,784,988,1319].forEach((f,i)=>{sO('sine',f,f,i*.1,.25,.18);sO('square',f,null,i*.1,.08,.05);});sN(.45,.2,.06,4000);}
+function sfxLevelStart(){[200,300,420,620,850].forEach((f,i)=>sO('square',f,f,i*.07,.06,.13));sO('sine',1000,1000,.40,.20,.18);sN(.10,.12,.07,2000);}
+function sfxWin(){[523,659,784,1047,1319].forEach((f,i)=>{sO('sine',f,f,i*.09,.38,.22);sO('square',f,null,i*.09,.12,.05);});sN(.48,.28,.07,4000);sO('sine',1047,1047,.50,.55,.18);sO('sine',1319,1319,.50,.55,.14);sO('sine',1568,1568,.50,.55,.10);}
+function sfxPerfect(){[523,659,784,1047,1319,1568,2093].forEach((f,i)=>{sO('sine',f,f,i*.07,.50,.18);sO('triangle',f*2,f*2,i*.07,.22,.06);});sO('sine',2093,2093,.58,.70,.25);sO('sine',2637,2637,.58,.70,.20);sN(0,.4,.05,6000);}
+function sfxGameOver(){[440,370,311,261,220,185].forEach((f,i)=>{sO('sawtooth',f,f*.94,i*.13,.24,.18);sO('square',f,null,i*.13,.10,.05);});sO('sine',55,40,.10,.90,.30);sO('sine',60,45,.10,.90,.22);sN(0,.55,.16,380);}
+function sfxFinale(){const c1=[261,330,392,523],c2=[293,370,440,587];c1.forEach(f=>sO('sawtooth',f,f,0,.28,.13));c2.forEach(f=>sO('sawtooth',f,f,.35,.28,.13));c1.forEach(f=>sO('sawtooth',f,f,.70,.36,.13));[523,659,784,1047,1319,1568].forEach((f,i)=>sO('sine',f,f,.85+i*.10,.40,.18));[523,659,784,1047,1319].forEach(f=>sO('sine',f,f,1.55,1.40,.22));sN(1.55,.55,.10,2800);}
 
 /* ═══════════════════════════════════════════
-BGM ENGINE — Ambient Synthesized Soundtrack
-Style: slow cyberpunk ambient / suspense void
-4 layers: drone + chord pad + arpegg + pulse
+   BGM ENGINE — Ambient Synthesized Soundtrack
+   Style: slow cyberpunk ambient / suspense void
+   4 layers: drone + chord pad + arpegg + pulse
 ═══════════════════════════════════════════ */
 class BGMEngine{
-constructor(ctx,dest){
-this.c=ctx;this.d=dest;this.nodes=[];this.running=false;
-this.masterGain=ctx.createGain();this.masterGain.gain.value=1;
-this.masterGain.connect(dest);
-}
-_osc(type,freq,gainVal,detuneRange=0){
-const c=this.c,o=c.createOscillator(),g=c.createGain();
-o.type=type;o.frequency.value=freq;
-if(detuneRange)o.detune.value=(Math.random()-.5)*detuneRange;
-g.gain.value=gainVal;o.connect(g);g.connect(this.masterGain);
-o.start();this.nodes.push(o,g);return{o,g};
-}
-_lfo(target,paramName,rate,depth,base){
-const c=this.c,l=c.createOscillator(),lg=c.createGain();
-l.type=‘sine’;l.frequency.value=rate;lg.gain.value=depth;
-l.connect(lg);lg.connect(target[paramName]);target[paramName].value=base;
-l.start();this.nodes.push(l,lg);
-}
-start(){
-if(this.running)return;this.running=true;
-const c=this.c;
-// Layer 1: Deep drone (55Hz = A1) with slow LFO
-const {o:d1,g:dg1}=this._osc(‘sine’,55,.36);
-const {o:d2}=this._osc(‘sine’,55.5,.18);
-this._lfo(dg1,‘gain’,.05,.12,.36); // breathing
-// Layer 2: Fifth above (82.5Hz = E2) - quiet harmony
-this._osc(‘triangle’,82.4,.12);
-// Layer 3: Pad chord (110/138/165 = A2/C#3/E3) detuned
-const padNotes=[110,138.6,165];
-padNotes.forEach(f=>{
-const {o,g}=this._osc(‘sawtooth’,f,.09,8);
-// Apply lowpass to soften sawtooth
-const flt=c.createBiquadFilter();flt.type=‘lowpass’;flt.frequency.value=600;flt.Q.value=1;
-o.disconnect();g.disconnect();o.connect(flt);flt.connect(g);g.connect(this.masterGain);
-this.nodes.push(flt);
-});
-// Layer 4: Slow arpeggio pulse every 1.5 beats (120BPM)
-const arpNotes=[220,261.6,329.6,220,196,261.6];
-let arpIdx=0;
-const arpGain=c.createGain();arpGain.gain.value=0;arpGain.connect(this.masterGain);
-const arpOsc=c.createOscillator();arpOsc.type=‘square’;arpOsc.frequency.value=220;
-const arpFlt=c.createBiquadFilter();arpFlt.type=‘lowpass’;arpFlt.frequency.value=800;
-arpOsc.connect(arpFlt);arpFlt.connect(arpGain);arpOsc.start();
-this.nodes.push(arpOsc,arpGain,arpFlt);
-// Trigger arpeggios
-this._arpInterval=setInterval(()=>{
-if(!this.running)return;
-const now=c.currentTime;
-const freq=arpNotes[arpIdx%arpNotes.length];arpIdx++;
-arpOsc.frequency.setValueAtTime(freq,now);
-arpGain.gain.cancelScheduledValues(now);
-arpGain.gain.setValueAtTime(0,now);
-arpGain.gain.linearRampToValueAtTime(.12,now+.05);
-arpGain.gain.exponentialRampToValueAtTime(.001,now+.4);
-},750); // 80BPM quarter notes
-// Layer 5: Sub bass pulse
-const subOsc=c.createOscillator();subOsc.type=‘sine’;subOsc.frequency.value=27.5;
-const subG=c.createGain();subG.gain.value=.22;
-this._lfo(subG,‘gain’,.15,.10,.22);
-subOsc.connect(subG);subG.connect(this.masterGain);subOsc.start();
-this.nodes.push(subOsc,subG);
-}
-stop(){
-this.running=false;clearInterval(this.*arpInterval);
-const now=this.c.currentTime;
-this.masterGain.gain.setValueAtTime(this.masterGain.gain.value,now);
-this.masterGain.gain.exponentialRampToValueAtTime(.001,now+1.5);
-setTimeout(()=>{
-this.nodes.forEach(n=>{try{n.stop?n.stop():n.disconnect();}catch(*){}});
-this.nodes=[];
-},1600);
-}
-setIntensity(mode){ // ‘ambient’|‘tense’|‘victory’
-if(!this.running||!this.c)return;
-const now=this.c.currentTime;
-if(mode===‘tense’)this.masterGain.gain.linearRampToValueAtTime(1.4,now+2);
-else if(mode===‘victory’)this.masterGain.gain.linearRampToValueAtTime(.6,now+1);
-else this.masterGain.gain.linearRampToValueAtTime(1,now+2);
-}
+  constructor(ctx,dest){
+    this.c=ctx;this.d=dest;this.nodes=[];this.running=false;
+    this.masterGain=ctx.createGain();this.masterGain.gain.value=1;
+    this.masterGain.connect(dest);
+  }
+  _osc(type,freq,gainVal,detuneRange=0){
+    const c=this.c,o=c.createOscillator(),g=c.createGain();
+    o.type=type;o.frequency.value=freq;
+    if(detuneRange)o.detune.value=(Math.random()-.5)*detuneRange;
+    g.gain.value=gainVal;o.connect(g);g.connect(this.masterGain);
+    o.start();this.nodes.push(o,g);return{o,g};
+  }
+  _lfo(target,paramName,rate,depth,base){
+    const c=this.c,l=c.createOscillator(),lg=c.createGain();
+    l.type='sine';l.frequency.value=rate;lg.gain.value=depth;
+    l.connect(lg);lg.connect(target[paramName]);target[paramName].value=base;
+    l.start();this.nodes.push(l,lg);
+  }
+  start(){
+    if(this.running)return;this.running=true;
+    const c=this.c;
+    // Layer 1: Deep drone (55Hz = A1) with slow LFO
+    const {o:d1,g:dg1}=this._osc('sine',55,.36);
+    const {o:d2}=this._osc('sine',55.5,.18);
+    this._lfo(dg1,'gain',.05,.12,.36); // breathing
+    // Layer 2: Fifth above (82.5Hz = E2) - quiet harmony
+    this._osc('triangle',82.4,.12);
+    // Layer 3: Pad chord (110/138/165 = A2/C#3/E3) detuned
+    const padNotes=[110,138.6,165];
+    padNotes.forEach(f=>{
+      const {o,g}=this._osc('sawtooth',f,.09,8);
+      // Apply lowpass to soften sawtooth
+      const flt=c.createBiquadFilter();flt.type='lowpass';flt.frequency.value=600;flt.Q.value=1;
+      o.disconnect();g.disconnect();o.connect(flt);flt.connect(g);g.connect(this.masterGain);
+      this.nodes.push(flt);
+    });
+    // Layer 4: Slow arpeggio pulse every 1.5 beats (120BPM)
+    const arpNotes=[220,261.6,329.6,220,196,261.6];
+    let arpIdx=0;
+    const arpGain=c.createGain();arpGain.gain.value=0;arpGain.connect(this.masterGain);
+    const arpOsc=c.createOscillator();arpOsc.type='square';arpOsc.frequency.value=220;
+    const arpFlt=c.createBiquadFilter();arpFlt.type='lowpass';arpFlt.frequency.value=800;
+    arpOsc.connect(arpFlt);arpFlt.connect(arpGain);arpOsc.start();
+    this.nodes.push(arpOsc,arpGain,arpFlt);
+    // Trigger arpeggios
+    this._arpInterval=setInterval(()=>{
+      if(!this.running)return;
+      const now=c.currentTime;
+      const freq=arpNotes[arpIdx%arpNotes.length];arpIdx++;
+      arpOsc.frequency.setValueAtTime(freq,now);
+      arpGain.gain.cancelScheduledValues(now);
+      arpGain.gain.setValueAtTime(0,now);
+      arpGain.gain.linearRampToValueAtTime(.12,now+.05);
+      arpGain.gain.exponentialRampToValueAtTime(.001,now+.4);
+    },750); // 80BPM quarter notes
+    // Layer 5: Sub bass pulse
+    const subOsc=c.createOscillator();subOsc.type='sine';subOsc.frequency.value=27.5;
+    const subG=c.createGain();subG.gain.value=.22;
+    this._lfo(subG,'gain',.15,.10,.22);
+    subOsc.connect(subG);subG.connect(this.masterGain);subOsc.start();
+    this.nodes.push(subOsc,subG);
+  }
+  stop(){
+    this.running=false;clearInterval(this._arpInterval);
+    const now=this.c.currentTime;
+    this.masterGain.gain.setValueAtTime(this.masterGain.gain.value,now);
+    this.masterGain.gain.exponentialRampToValueAtTime(.001,now+1.5);
+    setTimeout(()=>{
+      this.nodes.forEach(n=>{try{n.stop?n.stop():n.disconnect();}catch(_){}});
+      this.nodes=[];
+    },1600);
+  }
+  setIntensity(mode){ // 'ambient'|'tense'|'victory'
+    if(!this.running||!this.c)return;
+    const now=this.c.currentTime;
+    if(mode==='tense')this.masterGain.gain.linearRampToValueAtTime(1.4,now+2);
+    else if(mode==='victory')this.masterGain.gain.linearRampToValueAtTime(.6,now+1);
+    else this.masterGain.gain.linearRampToValueAtTime(1,now+2);
+  }
 }
 
 /* ═══════════════════════════════════════════
-SCORE RANK HELPER (kept for finale badge display)
+   SCORE RANK HELPER (kept for finale badge display)
 ═══════════════════════════════════════════ */
 function getScoreRank(score){
-if(score>=18000)return{label:‘ELITE’,cls:‘rank-elite’};
-if(score>=12000)return{label:‘DIAMOND’,cls:‘rank-diamond’};
-if(score>=7000)return{label:‘GOLD’,cls:‘rank-gold’};
-if(score>=3000)return{label:‘SILVER’,cls:‘rank-silver’};
-return{label:‘BRONZE’,cls:‘rank-bronze’};
+  if(score>=18000)return{label:'ELITE',cls:'rank-elite'};
+  if(score>=12000)return{label:'DIAMOND',cls:'rank-diamond'};
+  if(score>=7000)return{label:'GOLD',cls:'rank-gold'};
+  if(score>=3000)return{label:'SILVER',cls:'rank-silver'};
+  return{label:'BRONZE',cls:'rank-bronze'};
 }
 function rankBadgeHTML(score){
-const r=getScoreRank(score);
-return`<span class="rank-badge ${r.cls}">${r.label}</span>`;
+  const r=getScoreRank(score);
+  return`<span class="rank-badge ${r.cls}">${r.label}</span>`;
 }
-function sanitise(s){return String(s).replace(/[<>&”’]/g,’’).slice(0,20);}
+function sanitise(s){return String(s).replace(/[<>&"']/g,'').slice(0,20);}
 
 /* ═══════════════════════════════════════════
-PERSISTENCE
+   PERSISTENCE
 ═══════════════════════════════════════════ */
 let coins=0,inventory={hints:0,attempts:0,reveals:0,freeze:0},
-currentStreak=0,bestStreak=0,totalWins=0,totalLosses=0,
-totalCoinsEarned=0,fullRunsCompleted=0,sessionWins=0,
-mpWins=0,mpLosses=0,betsWon=0,betsTotal=0,
-achProgress={},playerName=‘AGENT’;
+    currentStreak=0,bestStreak=0,totalWins=0,totalLosses=0,
+    totalCoinsEarned=0,fullRunsCompleted=0,sessionWins=0,
+    mpWins=0,mpLosses=0,betsWon=0,betsTotal=0,
+    achProgress={},playerName='AGENT';
 
 function loadSave(){
-try{
-const g=k=>localStorage.getItem(k);
-coins=+g(‘nv_coins’)||0;totalCoinsEarned=+g(‘nv_tce’)||0;
-currentStreak=+g(‘nv_streak’)||0;bestStreak=+g(‘nv_bstreak’)||0;
-totalWins=+g(‘nv_wins’)||0;totalLosses=+g(‘nv_losses’)||0;
-fullRunsCompleted=+g(‘nv_runs’)||0;mpWins=+g(‘nv_mpw’)||0;mpLosses=+g(‘nv_mpl’)||0;
-betsWon=+g(‘nv_bw’)||0;betsTotal=+g(‘nv_bt’)||0;
-playerName=(g(‘nv_name’)||‘AGENT’).toUpperCase().replace(/[^A-Z0-9_-]/g,’’).slice(0,12)||‘AGENT’;
-const inv=JSON.parse(g(‘nv_inv’)||’{}’);
-inventory={hints:+inv.hints||0,attempts:+inv.attempts||0,reveals:+inv.reveals||0,freeze:+inv.freeze||0};
-achProgress=JSON.parse(g(‘nv_ach’)||’{}’);
-}catch(e){console.warn(‘Load:’,e);}
+  try{
+    const g=k=>localStorage.getItem(k);
+    coins=+g('nv_coins')||0;totalCoinsEarned=+g('nv_tce')||0;
+    currentStreak=+g('nv_streak')||0;bestStreak=+g('nv_bstreak')||0;
+    totalWins=+g('nv_wins')||0;totalLosses=+g('nv_losses')||0;
+    fullRunsCompleted=+g('nv_runs')||0;mpWins=+g('nv_mpw')||0;mpLosses=+g('nv_mpl')||0;
+    betsWon=+g('nv_bw')||0;betsTotal=+g('nv_bt')||0;
+    playerName=(g('nv_name')||'AGENT').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,12)||'AGENT';
+    const inv=JSON.parse(g('nv_inv')||'{}');
+    inventory={hints:+inv.hints||0,attempts:+inv.attempts||0,reveals:+inv.reveals||0,freeze:+inv.freeze||0};
+    achProgress=JSON.parse(g('nv_ach')||'{}');
+  }catch(e){console.warn('Load:',e);}
 }
 function saveAll(){
-try{
-const s=(k,v)=>localStorage.setItem(k,String(v));
-s(‘nv_coins’,coins);s(‘nv_tce’,totalCoinsEarned);s(‘nv_streak’,currentStreak);
-s(‘nv_bstreak’,bestStreak);s(‘nv_wins’,totalWins);s(‘nv_losses’,totalLosses);
-s(‘nv_runs’,fullRunsCompleted);s(‘nv_mpw’,mpWins);s(‘nv_mpl’,mpLosses);
-s(‘nv_bw’,betsWon);s(‘nv_bt’,betsTotal);s(‘nv_name’,playerName);
-localStorage.setItem(‘nv_inv’,JSON.stringify(inventory));
-localStorage.setItem(‘nv_ach’,JSON.stringify(achProgress));
-}catch(e){}
+  try{
+    const s=(k,v)=>localStorage.setItem(k,String(v));
+    s('nv_coins',coins);s('nv_tce',totalCoinsEarned);s('nv_streak',currentStreak);
+    s('nv_bstreak',bestStreak);s('nv_wins',totalWins);s('nv_losses',totalLosses);
+    s('nv_runs',fullRunsCompleted);s('nv_mpw',mpWins);s('nv_mpl',mpLosses);
+    s('nv_bw',betsWon);s('nv_bt',betsTotal);s('nv_name',playerName);
+    localStorage.setItem('nv_inv',JSON.stringify(inventory));
+    localStorage.setItem('nv_ach',JSON.stringify(achProgress));
+  }catch(e){}
 }
-function confirmReset(){if(confirm(‘WIPE ALL SAVE DATA? Cannot be undone.’))resetSave();}
+function confirmReset(){if(confirm('WIPE ALL SAVE DATA? Cannot be undone.'))resetSave();}
 function resetSave(){try{localStorage.clear();}catch(e){}coins=0;inventory={hints:0,attempts:0,reveals:0,freeze:0};currentStreak=0;bestStreak=0;totalWins=0;totalLosses=0;totalCoinsEarned=0;fullRunsCompleted=0;sessionWins=0;mpWins=0;mpLosses=0;betsWon=0;betsTotal=0;achProgress={};updateTitleBar();sfxInvalid();}
-function saveName(){const v=(document.getElementById(‘player-name-input’).value||‘AGENT’).toUpperCase().replace(/[^A-Z0-9_-]/g,’’).slice(0,12)||‘AGENT’;playerName=v;saveAll();}
+function saveName(){const v=(document.getElementById('player-name-input').value||'AGENT').toUpperCase().replace(/[^A-Z0-9_-]/g,'').slice(0,12)||'AGENT';playerName=v;saveAll();}
 function addCoins(n){coins=Math.max(0,coins+n);if(n>0){totalCoinsEarned+=n;sfxCoin();}saveAll();updateHudCoins();}
 
 /* ═══════════════════════════════════════════
-ECONOMY
+   ECONOMY
 ═══════════════════════════════════════════ */
 const BET_MULT=1.5,BET_CAP=200;
 const ENTRY_FEES=[0,0,20,40,80];
 const BASE_SHOP=[
-{id:‘hints’, icon:‘◈’,name:‘EXTRA HINT’, desc:‘Reveals upper or lower half of remaining range.’, base:120,max:3},
-{id:‘attempts’,icon:‘▲’,name:‘EXTRA ATTEMPT’, desc:‘Adds +1 attempt mid-game via arsenal.’, base:160,max:2},
-{id:‘reveals’,icon:‘◉’,name:‘REVEAL DIGIT’, desc:‘Exposes one digit at its exact position. e.g. _ 4 _’,base:220,max:2},
-{id:‘freeze’, icon:‘⏱’,name:‘TIME FREEZE’, desc:‘Adds 8 seconds to timer (Time Attack only).’, base:100,max:3},
+  {id:'hints',  icon:'◈',name:'EXTRA HINT',    desc:'Reveals upper or lower half of remaining range.',     base:120,max:3},
+  {id:'attempts',icon:'▲',name:'EXTRA ATTEMPT', desc:'Adds +1 attempt mid-game via arsenal.',               base:160,max:2},
+  {id:'reveals',icon:'◉',name:'REVEAL DIGIT',  desc:'Exposes one digit at its exact position. e.g. _ 4 _',base:220,max:2},
+  {id:'freeze', icon:'⏱',name:'TIME FREEZE',   desc:'Adds 8 seconds to timer (Time Attack only).',         base:100,max:3},
 ];
 function shopPrice(item,lvlIdx){return Math.ceil(item.base*(1+lvlIdx*.12));}
 function calcWinCoins(attLeft,maxAtt,lvlMult,isFirst,betAmt,tLeft){
-const perf=20+Math.floor(25*(attLeft/maxAtt));
-const lvl=perf*(0.7+lvlMult*.3);
-const streakMult=1+Math.min(currentStreak,8)*.05;
-const dr=Math.max(.75,1-(Math.max(0,sessionWins-3)*.04));
-let total=Math.floor(lvl*streakMult*dr);
-if(isFirst)total+=60;
-if(timeAttackMode&&tLeft>0)total+=Math.floor(tLeft*1.2);
-if(betAmt>0)total+=Math.floor(betAmt*BET_MULT);
-return Math.max(8,total);
+  const perf=20+Math.floor(25*(attLeft/maxAtt));
+  const lvl=perf*(0.7+lvlMult*.3);
+  const streakMult=1+Math.min(currentStreak,8)*.05;
+  const dr=Math.max(.75,1-(Math.max(0,sessionWins-3)*.04));
+  let total=Math.floor(lvl*streakMult*dr);
+  if(isFirst)total+=60;
+  if(timeAttackMode&&tLeft>0)total+=Math.floor(tLeft*1.2);
+  if(betAmt>0)total+=Math.floor(betAmt*BET_MULT);
+  return Math.max(8,total);
 }
 function calcWinScore(attLeft,maxAtt,lvlMult,isFirst,tLeft){
-let s=Math.round((attLeft/maxAtt)*1000*lvlMult);
-if(isFirst)s+=500;
-if(timeAttackMode&&tLeft>0)s+=tLeft*5;
-if(currentStreak>1)s+=Math.round(s*(Math.min(currentStreak,10)*.05));
-return s;
+  let s=Math.round((attLeft/maxAtt)*1000*lvlMult);
+  if(isFirst)s+=500;
+  if(timeAttackMode&&tLeft>0)s+=tLeft*5;
+  if(currentStreak>1)s+=Math.round(s*(Math.min(currentStreak,10)*.05));
+  return s;
 }
 function lossCoinsPenalty(){if(coins<=5)return 0;return Math.min(25,Math.floor(coins*.05)+3);}
 
 /* ═══════════════════════════════════════════
-ACHIEVEMENTS (30 tiers)
+   ACHIEVEMENTS (30 tiers)
 ═══════════════════════════════════════════ */
 const ACH_DEF=[
-{id:‘quick’, icon:‘⚡’,name:‘QUICK BREACH’, tiers:[{l:‘BRONZE’,req:‘Win in ≤6 guesses’,c:15},{l:‘SILVER’,req:‘Win in ≤4 guesses’,c:25},{l:‘GOLD’,req:‘Win in ≤2 guesses’,c:60}]},
-{id:‘streak’, icon:‘▲’,name:‘STREAK MASTER’, tiers:[{l:‘BRONZE’,req:‘Win 3 in a row’,c:15},{l:‘SILVER’,req:‘Win 5 in a row’,c:30},{l:‘GOLD’,req:‘Win 10 in a row’,c:80}]},
-{id:‘economist’,icon:‘◈’,name:‘ECONOMIST’, tiers:[{l:‘BRONZE’,req:‘Earn 300 total coins’,c:20},{l:‘SILVER’,req:‘Earn 900 total coins’,c:40},{l:‘GOLD’,req:‘Earn 2500 total coins’,c:100}]},
-{id:‘purist’, icon:‘◇’,name:‘PURIST’, tiers:[{l:‘BRONZE’,req:‘Win 1 level no items’,c:15},{l:‘SILVER’,req:‘Win 5 levels no items’,c:35},{l:‘GOLD’,req:‘Full run, zero items’,c:120}]},
-{id:‘gambler’, icon:‘◎’,name:‘HIGH ROLLER’, tiers:[{l:‘BRONZE’,req:‘Win a bet’,c:15},{l:‘SILVER’,req:‘Win 5 bets’,c:30},{l:‘GOLD’,req:‘Win a 100+ bet’,c:80}]},
-{id:‘speed’, icon:‘◉’,name:‘SPEED DAEMON’, tiers:[{l:‘BRONZE’,req:‘Win Time Attack 25s+ left’,c:20},{l:‘SILVER’,req:‘Win Time Attack 35s+ left’,c:45},{l:‘GOLD’,req:‘First-guess in Time Attack’,c:110}]},
-{id:‘runner’, icon:‘★’,name:‘VOID RUNNER’, tiers:[{l:‘BRONZE’,req:‘Complete all 5 levels once’,c:50},{l:‘SILVER’,req:‘Complete 5 full runs’,c:100},{l:‘GOLD’,req:‘Complete 15 full runs’,c:300}]},
-{id:‘duelist’, icon:‘◑’,name:‘DUELIST’, tiers:[{l:‘BRONZE’,req:‘Win 1 multiplayer match’,c:30},{l:‘SILVER’,req:‘Win 5 MP matches’,c:70},{l:‘GOLD’,req:‘Win 20 MP matches’,c:180}]},
-{id:‘survivor’, icon:‘◆’,name:‘SURVIVOR’, tiers:[{l:‘BRONZE’,req:‘Win with 1 attempt left’,c:25},{l:‘SILVER’,req:‘Do this 5 times’,c:50},{l:‘GOLD’,req:‘Do this 15 times’,c:150}]},
-{id:‘lucky’, icon:‘⬡’,name:‘LUCKY SHOT’, hidden:true,tiers:[{l:‘GOLD’,req:‘First-guess on VOID CORE’,c:200}]},
-{id:‘broke’, icon:‘◆’,name:‘BROKE BREACH’, hidden:true,tiers:[{l:‘GOLD’,req:‘Win with exactly 0 coins’,c:100}]},
-{id:‘bigbet’, icon:‘◐’,name:‘RECKLESS’, hidden:true,tiers:[{l:‘GOLD’,req:‘Win a 100+ coin bet’,c:150}]},
+  {id:'quick',    icon:'⚡',name:'QUICK BREACH',  tiers:[{l:'BRONZE',req:'Win in ≤6 guesses',c:15},{l:'SILVER',req:'Win in ≤4 guesses',c:25},{l:'GOLD',req:'Win in ≤2 guesses',c:60}]},
+  {id:'streak',   icon:'▲',name:'STREAK MASTER',  tiers:[{l:'BRONZE',req:'Win 3 in a row',c:15},{l:'SILVER',req:'Win 5 in a row',c:30},{l:'GOLD',req:'Win 10 in a row',c:80}]},
+  {id:'economist',icon:'◈',name:'ECONOMIST',       tiers:[{l:'BRONZE',req:'Earn 300 total coins',c:20},{l:'SILVER',req:'Earn 900 total coins',c:40},{l:'GOLD',req:'Earn 2500 total coins',c:100}]},
+  {id:'purist',   icon:'◇',name:'PURIST',          tiers:[{l:'BRONZE',req:'Win 1 level no items',c:15},{l:'SILVER',req:'Win 5 levels no items',c:35},{l:'GOLD',req:'Full run, zero items',c:120}]},
+  {id:'gambler',  icon:'◎',name:'HIGH ROLLER',     tiers:[{l:'BRONZE',req:'Win a bet',c:15},{l:'SILVER',req:'Win 5 bets',c:30},{l:'GOLD',req:'Win a 100+ bet',c:80}]},
+  {id:'speed',    icon:'◉',name:'SPEED DAEMON',    tiers:[{l:'BRONZE',req:'Win Time Attack 25s+ left',c:20},{l:'SILVER',req:'Win Time Attack 35s+ left',c:45},{l:'GOLD',req:'First-guess in Time Attack',c:110}]},
+  {id:'runner',   icon:'★',name:'VOID RUNNER',     tiers:[{l:'BRONZE',req:'Complete all 5 levels once',c:50},{l:'SILVER',req:'Complete 5 full runs',c:100},{l:'GOLD',req:'Complete 15 full runs',c:300}]},
+  {id:'duelist',  icon:'◑',name:'DUELIST',         tiers:[{l:'BRONZE',req:'Win 1 multiplayer match',c:30},{l:'SILVER',req:'Win 5 MP matches',c:70},{l:'GOLD',req:'Win 20 MP matches',c:180}]},
+  {id:'survivor', icon:'◆',name:'SURVIVOR',        tiers:[{l:'BRONZE',req:'Win with 1 attempt left',c:25},{l:'SILVER',req:'Do this 5 times',c:50},{l:'GOLD',req:'Do this 15 times',c:150}]},
+  {id:'lucky',    icon:'⬡',name:'LUCKY SHOT',      hidden:true,tiers:[{l:'GOLD',req:'First-guess on VOID CORE',c:200}]},
+  {id:'broke',    icon:'◆',name:'BROKE BREACH',    hidden:true,tiers:[{l:'GOLD',req:'Win with exactly 0 coins',c:100}]},
+  {id:'bigbet',   icon:'◐',name:'RECKLESS',        hidden:true,tiers:[{l:'GOLD',req:'Win a 100+ coin bet',c:150}]},
 ];
 const TOTAL_TIERS=ACH_DEF.reduce((s,a)=>s+a.tiers.length,0);
 
 function checkAch(ctx){
-const g=ctx||{};
-if(g.noItems)achProgress[‘purist_count’]=(achProgress[‘purist_count’]||0)+1;
-if(g.lastAttempt)achProgress[‘survivor_count’]=(achProgress[‘survivor_count’]||0)+1;
-ACH_DEF.forEach(a=>{
-const cur=achProgress[a.id]||0;if(cur>=a.tiers.length)return;
-let n=cur;const pc=achProgress[‘purist_count’]||0,sc=achProgress[‘survivor_count’]||0;
-switch(a.id){
-case ‘quick’:if(g.guesses<=6&&n<1)n=1;if(g.guesses<=4&&n<2)n=2;if(g.guesses<=2&&n<3)n=3;break;
-case ‘streak’:if(currentStreak>=3&&n<1)n=1;if(currentStreak>=5&&n<2)n=2;if(currentStreak>=10&&n<3)n=3;break;
-case ‘economist’:if(totalCoinsEarned>=300&&n<1)n=1;if(totalCoinsEarned>=900&&n<2)n=2;if(totalCoinsEarned>=2500&&n<3)n=3;break;
-case ‘purist’:if(g.noItems&&n<1)n=1;if(pc>=5&&n<2)n=2;if(g.cleanRun&&n<3)n=3;break;
-case ‘gambler’:if(betsWon>=1&&n<1)n=1;if(betsWon>=5&&n<2)n=2;if(g.bigBetWin&&n<3)n=3;break;
-case ‘speed’:if(g.tLeft>=25&&n<1)n=1;if(g.tLeft>=35&&n<2)n=2;if(g.isFirst&&g.tLeft>=44&&n<3)n=3;break;
-case ‘runner’:if(fullRunsCompleted>=1&&n<1)n=1;if(fullRunsCompleted>=5&&n<2)n=2;if(fullRunsCompleted>=15&&n<3)n=3;break;
-case ‘duelist’:if(mpWins>=1&&n<1)n=1;if(mpWins>=5&&n<2)n=2;if(mpWins>=20&&n<3)n=3;break;
-case ‘survivor’:if(g.lastAttempt&&n<1)n=1;if(sc>=5&&n<2)n=2;if(sc>=15&&n<3)n=3;break;
-case ‘lucky’:if(g.isFirst&&(g.levelIdx||0)>=4&&n<1)n=1;break;
-case ‘broke’:if(coins===0&&g.win&&n<1)n=1;break;
-case ‘bigbet’:if(g.bigBetWin&&n<1)n=1;break;
-}
-if(n>cur){for(let t=cur+1;t<=n;t++){achProgress[a.id]=t;showAchToast(a,a.tiers[t-1],t);addCoins(a.tiers[t-1].c);}}
-});
-saveAll();
+  const g=ctx||{};
+  if(g.noItems)achProgress['purist_count']=(achProgress['purist_count']||0)+1;
+  if(g.lastAttempt)achProgress['survivor_count']=(achProgress['survivor_count']||0)+1;
+  ACH_DEF.forEach(a=>{
+    const cur=achProgress[a.id]||0;if(cur>=a.tiers.length)return;
+    let n=cur;const pc=achProgress['purist_count']||0,sc=achProgress['survivor_count']||0;
+    switch(a.id){
+      case 'quick':if(g.guesses<=6&&n<1)n=1;if(g.guesses<=4&&n<2)n=2;if(g.guesses<=2&&n<3)n=3;break;
+      case 'streak':if(currentStreak>=3&&n<1)n=1;if(currentStreak>=5&&n<2)n=2;if(currentStreak>=10&&n<3)n=3;break;
+      case 'economist':if(totalCoinsEarned>=300&&n<1)n=1;if(totalCoinsEarned>=900&&n<2)n=2;if(totalCoinsEarned>=2500&&n<3)n=3;break;
+      case 'purist':if(g.noItems&&n<1)n=1;if(pc>=5&&n<2)n=2;if(g.cleanRun&&n<3)n=3;break;
+      case 'gambler':if(betsWon>=1&&n<1)n=1;if(betsWon>=5&&n<2)n=2;if(g.bigBetWin&&n<3)n=3;break;
+      case 'speed':if(g.tLeft>=25&&n<1)n=1;if(g.tLeft>=35&&n<2)n=2;if(g.isFirst&&g.tLeft>=44&&n<3)n=3;break;
+      case 'runner':if(fullRunsCompleted>=1&&n<1)n=1;if(fullRunsCompleted>=5&&n<2)n=2;if(fullRunsCompleted>=15&&n<3)n=3;break;
+      case 'duelist':if(mpWins>=1&&n<1)n=1;if(mpWins>=5&&n<2)n=2;if(mpWins>=20&&n<3)n=3;break;
+      case 'survivor':if(g.lastAttempt&&n<1)n=1;if(sc>=5&&n<2)n=2;if(sc>=15&&n<3)n=3;break;
+      case 'lucky':if(g.isFirst&&(g.levelIdx||0)>=4&&n<1)n=1;break;
+      case 'broke':if(coins===0&&g.win&&n<1)n=1;break;
+      case 'bigbet':if(g.bigBetWin&&n<1)n=1;break;
+    }
+    if(n>cur){for(let t=cur+1;t<=n;t++){achProgress[a.id]=t;showAchToast(a,a.tiers[t-1],t);addCoins(a.tiers[t-1].c);}}
+  });
+  saveAll();
 }
 function countUnlockedTiers(){return ACH_DEF.reduce((s,a)=>s+(achProgress[a.id]||0),0);}
 function showAchToast(a,tier,tierNum){
-var wrap=document.getElementById(‘ach-toast-wrap’);
-if(!wrap)return;
-var t=document.createElement(‘div’);
-t.className=‘ach-toast’;
-var cls=[’’,‘bronze’,‘silver’,‘gold’][Math.min(tierNum,3)];
-t.innerHTML=’<div class="ach-toast-tag">★ ACHIEVEMENT UNLOCKED</div>’+
-‘<div class="ach-toast-tier '+cls+'">’+[’’,‘◈ BRONZE’,‘◈◈ SILVER’,‘◈◈◈ GOLD’][Math.min(tierNum,3)]+’</div>’+
-‘<div class="ach-toast-name">’+a.icon+’ ‘+a.name+’</div>’+
-‘<div class="ach-toast-desc">+’+tier.c+’ coins</div>’;
-wrap.appendChild(t);
-sfxAch();
-setTimeout(function(){
-if(t.isConnected){t.classList.add(‘out’);setTimeout(function(){if(t.isConnected)t.remove();},350);}
-},3800);
+  var wrap=document.getElementById('ach-toast-wrap');
+  if(!wrap)return;
+  var t=document.createElement('div');
+  t.className='ach-toast';
+  var cls=['','bronze','silver','gold'][Math.min(tierNum,3)];
+  t.innerHTML='<div class="ach-toast-tag">★ ACHIEVEMENT UNLOCKED</div>'+
+    '<div class="ach-toast-tier '+cls+'">'+['','◈ BRONZE','◈◈ SILVER','◈◈◈ GOLD'][Math.min(tierNum,3)]+'</div>'+
+    '<div class="ach-toast-name">'+a.icon+' '+a.name+'</div>'+
+    '<div class="ach-toast-desc">+'+tier.c+' coins</div>';
+  wrap.appendChild(t);
+  sfxAch();
+  setTimeout(function(){
+    if(t.isConnected){t.classList.add('out');setTimeout(function(){if(t.isConnected)t.remove();},350);}
+  },3800);
 }
 function renderAchievements(){
-const grid=document.getElementById(‘ach-grid’);grid.innerHTML=’’;
-document.getElementById(‘ach-progress-label’).textContent=`${countUnlockedTiers()} / ${TOTAL_TIERS} TIERS UNLOCKED`;
-ACH_DEF.forEach(a=>{
-const cur=achProgress[a.id]||0;const isHidden=a.hidden&&cur===0;
-const card=document.createElement(‘div’);card.className=`ach-card${cur>=3?' t3':cur>=2?' t2':cur>=1?' t1':''}`;
-const dots=a.tiers.map((_,i)=>`<div class="ach-dot${i<cur?(i<1?' b':i<2?' s':' g'):''}"></div>`).join(’’);
-const lk=cur===0?’ ach-locked’:’’;
-card.innerHTML=`<div class="ach-card-icon${lk}">${isHidden?'?':a.icon}</div><div class="ach-card-name${lk}">${isHidden?'???':a.name}</div><div class="ach-card-desc${lk}">${isHidden?'Secret achievement...':cur>0?a.tiers[cur-1].req:'Not yet unlocked'}</div><div class="ach-tiers">${dots}</div>`;
-grid.appendChild(card);
-});
+  const grid=document.getElementById('ach-grid');grid.innerHTML='';
+  document.getElementById('ach-progress-label').textContent=`${countUnlockedTiers()} / ${TOTAL_TIERS} TIERS UNLOCKED`;
+  ACH_DEF.forEach(a=>{
+    const cur=achProgress[a.id]||0;const isHidden=a.hidden&&cur===0;
+    const card=document.createElement('div');card.className=`ach-card${cur>=3?' t3':cur>=2?' t2':cur>=1?' t1':''}`;
+    const dots=a.tiers.map((_,i)=>`<div class="ach-dot${i<cur?(i<1?' b':i<2?' s':' g'):''}"></div>`).join('');
+    const lk=cur===0?' ach-locked':'';
+    card.innerHTML=`<div class="ach-card-icon${lk}">${isHidden?'?':a.icon}</div><div class="ach-card-name${lk}">${isHidden?'???':a.name}</div><div class="ach-card-desc${lk}">${isHidden?'Secret achievement...':cur>0?a.tiers[cur-1].req:'Not yet unlocked'}</div><div class="ach-tiers">${dots}</div>`;
+    grid.appendChild(card);
+  });
 }
 
 /* ═══════════════════════════════════════════
-MULTIPLAYER
+   MULTIPLAYER
 ═══════════════════════════════════════════ */
-let mpPeer=null,mpConn=null,mpIsHost=false,mpRoomCode=’’;
+let mpPeer=null,mpConn=null,mpIsHost=false,mpRoomCode='';
 let mpSecret=0,mpMyAtt=10,mpOppAtt=10,mpMyGuesses=[],mpOppGuesses=[],mpGameOver=false;
 const MP_CFG={min:1,max:200,attempts:10};
 function mpCreateRoom(){
-unlockAudio();sfxBtn();
-mpCleanup();mpIsHost=true;mpRoomCode=genRoomCode();setMpStatus(‘CREATING ROOM…’,’’);
-if(typeof Peer===‘undefined’){setMpStatus(‘PEERJS NOT LOADED — CHECK INTERNET’,‘err’);return;}
-try{
-mpPeer=new Peer(‘nv-’+mpRoomCode.toLowerCase(),{debug:0,config:{iceServers:[{urls:‘stun:stun.l.google.com:19302’},{urls:‘stun:stun1.l.google.com:19302’}]}});
-mpPeer.on(‘open’,()=>{document.getElementById(‘mp-room-code’).textContent=mpRoomCode;document.getElementById(‘mp-copy-btn’).style.display=’’;setMpStatus(‘WAITING FOR OPPONENT — CODE: ‘+mpRoomCode,’’);});
-mpPeer.on(‘connection’,(conn)=>{if(mpConn){conn.close();return;}mpConn=conn;setupMPConn();setMpStatus(‘OPPONENT CONNECTED!’,‘ok’);setTimeout(()=>mpInitGame(),1400);});
-mpPeer.on(‘error’,(e)=>setMpStatus(e.type===‘unavailable-id’?‘CODE TAKEN — RETRY’:‘ERROR: ‘+e.type.toUpperCase(),‘err’));
-}catch(e){setMpStatus(‘FAILED TO INIT’,‘err’);}
+  unlockAudio();sfxBtn();
+  mpCleanup();mpIsHost=true;mpRoomCode=genRoomCode();setMpStatus('CREATING ROOM...','');
+  if(typeof Peer==='undefined'){setMpStatus('PEERJS NOT LOADED — CHECK INTERNET','err');return;}
+  try{
+    mpPeer=new Peer('nv-'+mpRoomCode.toLowerCase(),{debug:0,config:{iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}]}});
+    mpPeer.on('open',()=>{document.getElementById('mp-room-code').textContent=mpRoomCode;document.getElementById('mp-copy-btn').style.display='';setMpStatus('WAITING FOR OPPONENT — CODE: '+mpRoomCode,'');});
+    mpPeer.on('connection',(conn)=>{if(mpConn){conn.close();return;}mpConn=conn;setupMPConn();setMpStatus('OPPONENT CONNECTED!','ok');setTimeout(()=>mpInitGame(),1400);});
+    mpPeer.on('error',(e)=>setMpStatus(e.type==='unavailable-id'?'CODE TAKEN — RETRY':'ERROR: '+e.type.toUpperCase(),'err'));
+  }catch(e){setMpStatus('FAILED TO INIT','err');}
 }
-function mpCopyCode(){unlockAudio();sfxBtn();try{navigator.clipboard.writeText(mpRoomCode).then(()=>setMpStatus(‘CODE COPIED!’,‘ok’));}catch(e){}}
+function mpCopyCode(){unlockAudio();sfxBtn();try{navigator.clipboard.writeText(mpRoomCode).then(()=>setMpStatus('CODE COPIED!','ok'));}catch(e){}}
 function mpJoinRoom(){
-unlockAudio();sfxBtn();
-const code=document.getElementById(‘mp-join-input’).value.trim().toUpperCase().replace(/[^A-Z0-9]/g,’’);
-if(code.length<4){setMpStatus(‘ENTER A VALID CODE’,‘err’);return;}
-mpCleanup();mpIsHost=false;mpRoomCode=code;setMpStatus(‘CONNECTING TO ‘+code+’…’,’’);
-if(typeof Peer===‘undefined’){setMpStatus(‘PEERJS NOT LOADED’,‘err’);return;}
-try{
-mpPeer=new Peer(null,{debug:0,config:{iceServers:[{urls:‘stun:stun.l.google.com:19302’},{urls:‘stun:stun1.l.google.com:19302’}]}});
-mpPeer.on(‘open’,()=>{mpConn=mpPeer.connect(‘nv-’+code.toLowerCase(),{reliable:true,serialization:‘json’});setupMPConn();});
-mpPeer.on(‘error’,()=>setMpStatus(‘ROOM NOT FOUND OR FULL’,‘err’));
-}catch(e){setMpStatus(‘FAILED’,‘err’);}
+  unlockAudio();sfxBtn();
+  const code=document.getElementById('mp-join-input').value.trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if(code.length<4){setMpStatus('ENTER A VALID CODE','err');return;}
+  mpCleanup();mpIsHost=false;mpRoomCode=code;setMpStatus('CONNECTING TO '+code+'...','');
+  if(typeof Peer==='undefined'){setMpStatus('PEERJS NOT LOADED','err');return;}
+  try{
+    mpPeer=new Peer(null,{debug:0,config:{iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}]}});
+    mpPeer.on('open',()=>{mpConn=mpPeer.connect('nv-'+code.toLowerCase(),{reliable:true,serialization:'json'});setupMPConn();});
+    mpPeer.on('error',()=>setMpStatus('ROOM NOT FOUND OR FULL','err'));
+  }catch(e){setMpStatus('FAILED','err');}
 }
 function setupMPConn(){
-const timeout=setTimeout(()=>setMpStatus(‘CONNECTION TIMEOUT — CHECK CODE’,‘err’),10000);
-mpConn.on(‘open’,()=>{clearTimeout(timeout);mpConn.send({type:‘hello’,name:playerName});if(!mpIsHost)setMpStatus(‘CONNECTED — WAITING FOR GAME’,‘ok’);});
-mpConn.on(‘data’,(d)=>{try{handleMPMsg(d);}catch(e){console.error(‘MP:’,e);}});
-mpConn.on(‘close’,()=>{if(!mpGameOver){setMpStatus(‘OPPONENT DISCONNECTED’,‘err’);const o=document.getElementById(‘mp-win-overlay’),h=document.getElementById(‘mp-overlay-headline’),s=document.getElementById(‘mp-overlay-sub’);h.textContent=‘DISCONNECTED’;h.style.color=‘var(–warn)’;s.textContent=‘Opponent left’;o.classList.add(‘visible’);}});
-mpConn.on(‘error’,()=>setMpStatus(‘CONNECTION ERROR’,‘err’));
+  const timeout=setTimeout(()=>setMpStatus('CONNECTION TIMEOUT — CHECK CODE','err'),10000);
+  mpConn.on('open',()=>{clearTimeout(timeout);mpConn.send({type:'hello',name:playerName});if(!mpIsHost)setMpStatus('CONNECTED — WAITING FOR GAME','ok');});
+  mpConn.on('data',(d)=>{try{handleMPMsg(d);}catch(e){console.error('MP:',e);}});
+  mpConn.on('close',()=>{if(!mpGameOver){setMpStatus('OPPONENT DISCONNECTED','err');const o=document.getElementById('mp-win-overlay'),h=document.getElementById('mp-overlay-headline'),s=document.getElementById('mp-overlay-sub');h.textContent='DISCONNECTED';h.style.color='var(--warn)';s.textContent='Opponent left';o.classList.add('visible');}});
+  mpConn.on('error',()=>setMpStatus('CONNECTION ERROR','err'));
 }
 function mpInitGame(){
-mpSecret=Math.floor(Math.random()*(MP_CFG.max-MP_CFG.min+1))+MP_CFG.min;
-mpMyAtt=MP_CFG.attempts;mpOppAtt=MP_CFG.attempts;mpMyGuesses=[];mpOppGuesses=[];mpGameOver=false;
-mpConn.send({type:‘game_start’,min:MP_CFG.min,max:MP_CFG.max,attempts:MP_CFG.attempts,hostName:playerName});
-renderMPGame(MP_CFG.min,MP_CFG.max,MP_CFG.attempts);showScreen(‘screen-mp-game’);setTimeout(()=>sfxLevelStart(),80);
+  mpSecret=Math.floor(Math.random()*(MP_CFG.max-MP_CFG.min+1))+MP_CFG.min;
+  mpMyAtt=MP_CFG.attempts;mpOppAtt=MP_CFG.attempts;mpMyGuesses=[];mpOppGuesses=[];mpGameOver=false;
+  mpConn.send({type:'game_start',min:MP_CFG.min,max:MP_CFG.max,attempts:MP_CFG.attempts,hostName:playerName});
+  renderMPGame(MP_CFG.min,MP_CFG.max,MP_CFG.attempts);showScreen('screen-mp-game');setTimeout(()=>sfxLevelStart(),80);
 }
 function handleMPMsg(d){
-if(!d||!d.type)return;
-if(d.type===‘hello’){const e=document.getElementById(‘mp-opp-name’);if(e)e.textContent=sanitise(d.name||‘OPPONENT’);}
-if(d.type===‘game_start’&&!mpIsHost){
-mpMyAtt=d.attempts;mpOppAtt=d.attempts;mpMyGuesses=[];mpOppGuesses=[];mpGameOver=false;
-const e=document.getElementById(‘mp-opp-name’);if(e)e.textContent=sanitise(d.hostName||‘HOST’);
-renderMPGame(d.min||1,d.max||200,d.attempts||10);showScreen(‘screen-mp-game’);setTimeout(()=>sfxLevelStart(),80);
-}
-if(d.type===‘guest_guess’&&mpIsHost){
-const v=parseInt(d.v);if(isNaN(v)||v<MP_CFG.min||v>MP_CFG.max||mpOppGuesses.find(g=>g.v===v))return;
-const res=v===mpSecret?‘correct’:v<mpSecret?‘higher’:‘lower’;
-mpOppAtt=Math.max(0,mpOppAtt-1);mpOppGuesses.push({v,r:res});
-mpConn.send({type:‘guest_result’,v,r:res,att:mpOppAtt});renderMPOppGuess(v,res,mpOppAtt);
-if(res===‘correct’&&!mpGameOver)mpEndGame(‘guest’);
-else if(mpOppAtt===0&&mpMyAtt===0&&!mpGameOver)mpEndGame(‘draw’);
-}
-if(d.type===‘guest_result’&&!mpIsHost){
-mpMyAtt=d.att;mpMyGuesses.push({v:d.v,r:d.r});renderMPMyResult(d.v,d.r,d.att);
-if(d.r===‘correct’&&!mpGameOver)mpEndGame(‘guest’);
-else if(d.att===0&&mpOppAtt===0&&!mpGameOver)mpEndGame(‘draw’);
-}
-if(d.type===‘host_guess’&&!mpIsHost){
-mpOppAtt=d.att;mpOppGuesses.push({v:d.v,r:d.r});renderMPOppGuess(d.v,d.r,d.att);
-if(d.r===‘correct’&&!mpGameOver)mpEndGame(‘host_opp’);
-}
-if(d.type===‘game_over_sync’&&!mpIsHost)mpShowResult(d.winner,d.secret);
-if(d.type===‘rematch’&&mpIsHost)mpInitGame();
+  if(!d||!d.type)return;
+  if(d.type==='hello'){const e=document.getElementById('mp-opp-name');if(e)e.textContent=sanitise(d.name||'OPPONENT');}
+  if(d.type==='game_start'&&!mpIsHost){
+    mpMyAtt=d.attempts;mpOppAtt=d.attempts;mpMyGuesses=[];mpOppGuesses=[];mpGameOver=false;
+    const e=document.getElementById('mp-opp-name');if(e)e.textContent=sanitise(d.hostName||'HOST');
+    renderMPGame(d.min||1,d.max||200,d.attempts||10);showScreen('screen-mp-game');setTimeout(()=>sfxLevelStart(),80);
+  }
+  if(d.type==='guest_guess'&&mpIsHost){
+    const v=parseInt(d.v);if(isNaN(v)||v<MP_CFG.min||v>MP_CFG.max||mpOppGuesses.find(g=>g.v===v))return;
+    const res=v===mpSecret?'correct':v<mpSecret?'higher':'lower';
+    mpOppAtt=Math.max(0,mpOppAtt-1);mpOppGuesses.push({v,r:res});
+    mpConn.send({type:'guest_result',v,r:res,att:mpOppAtt});renderMPOppGuess(v,res,mpOppAtt);
+    if(res==='correct'&&!mpGameOver)mpEndGame('guest');
+    else if(mpOppAtt===0&&mpMyAtt===0&&!mpGameOver)mpEndGame('draw');
+  }
+  if(d.type==='guest_result'&&!mpIsHost){
+    mpMyAtt=d.att;mpMyGuesses.push({v:d.v,r:d.r});renderMPMyResult(d.v,d.r,d.att);
+    if(d.r==='correct'&&!mpGameOver)mpEndGame('guest');
+    else if(d.att===0&&mpOppAtt===0&&!mpGameOver)mpEndGame('draw');
+  }
+  if(d.type==='host_guess'&&!mpIsHost){
+    mpOppAtt=d.att;mpOppGuesses.push({v:d.v,r:d.r});renderMPOppGuess(d.v,d.r,d.att);
+    if(d.r==='correct'&&!mpGameOver)mpEndGame('host_opp');
+  }
+  if(d.type==='game_over_sync'&&!mpIsHost)mpShowResult(d.winner,d.secret);
+  if(d.type==='rematch'&&mpIsHost)mpInitGame();
 }
 function mpSubmitGuess(){
-if(mpGameOver)return;const inp=document.getElementById(‘mp-my-input’);
-const v=parseInt(inp.value);inp.value=’’;
-if(isNaN(v)||v<MP_CFG.min||v>MP_CFG.max){sfxInvalid();return;}
-if(mpMyGuesses.find(g=>g.v===v)){sfxDuplicate();return;}
-sfxSubmit();
-if(mpIsHost){
-const res=v===mpSecret?‘correct’:v<mpSecret?‘higher’:‘lower’;
-mpMyAtt=Math.max(0,mpMyAtt-1);mpMyGuesses.push({v,r:res});
-mpConn.send({type:‘host_guess’,v,r:res,att:mpMyAtt});renderMPMyResult(v,res,mpMyAtt);
-if(res===‘correct’&&!mpGameOver)mpEndGame(‘host’);
-else setTimeout(()=>res===‘higher’?sfxHigher():sfxLower(),120);
-}else{
-mpConn.send({type:‘guest_guess’,v});
-const chips=document.getElementById(‘mp-my-chips’);
-const ph=chips.querySelector(‘span’);if(ph)ph.remove();
-const c=document.createElement(‘div’);c.className=‘mp-chip’;
-c.innerHTML=`<span class="chip-num">${v}</span><span style="color:var(--warn)">…</span>`;c.id=‘mpp’+v;chips.appendChild(c);
+  if(mpGameOver)return;const inp=document.getElementById('mp-my-input');
+  const v=parseInt(inp.value);inp.value='';
+  if(isNaN(v)||v<MP_CFG.min||v>MP_CFG.max){sfxInvalid();return;}
+  if(mpMyGuesses.find(g=>g.v===v)){sfxDuplicate();return;}
+  sfxSubmit();
+  if(mpIsHost){
+    const res=v===mpSecret?'correct':v<mpSecret?'higher':'lower';
+    mpMyAtt=Math.max(0,mpMyAtt-1);mpMyGuesses.push({v,r:res});
+    mpConn.send({type:'host_guess',v,r:res,att:mpMyAtt});renderMPMyResult(v,res,mpMyAtt);
+    if(res==='correct'&&!mpGameOver)mpEndGame('host');
+    else setTimeout(()=>res==='higher'?sfxHigher():sfxLower(),120);
+  }else{
+    mpConn.send({type:'guest_guess',v});
+    const chips=document.getElementById('mp-my-chips');
+    const ph=chips.querySelector('span');if(ph)ph.remove();
+    const c=document.createElement('div');c.className='mp-chip';
+    c.innerHTML=`<span class="chip-num">${v}</span><span style="color:var(--warn)">…</span>`;c.id='mpp'+v;chips.appendChild(c);
+  }
 }
-}
-function mpHandleKey(e){if(e.key===‘Enter’)mpSubmitGuess();else sfxKeyPress();}
+function mpHandleKey(e){if(e.key==='Enter')mpSubmitGuess();else sfxKeyPress();}
 function renderMPMyResult(v,r,attLeft){
-document.getElementById(‘mp-my-att’).textContent=‘ATT: ‘+attLeft;
-const dir=document.getElementById(‘mp-my-dir’);
-dir.textContent=r===‘correct’?‘✓’:r===‘higher’?‘▲’:‘▼’;
-dir.className=‘mp-dir ‘+(r===‘correct’?’’:r===‘higher’?‘hi’:‘lo’);
-if(r===‘correct’)dir.style.color=‘var(–pri)’;else dir.style.color=’’;
-const chips=document.getElementById(‘mp-my-chips’);
-const pending=document.getElementById(‘mpp’+v);if(pending)pending.remove();
-const ph=chips.querySelector(‘span’);if(ph)ph.remove();
-const c=document.createElement(‘div’);c.className=‘mp-chip’;
-c.innerHTML=`<span class="chip-num">${v}</span><span style="color:${r==='correct'?'var(--pri)':r==='higher'?'var(--pri)':'var(--sec)'}">${r==='correct'?'✓':r==='higher'?'▲':'▼'}</span>`;
-chips.appendChild(c);
-if(r===‘higher’)sfxHigher();else if(r===‘lower’)sfxLower();
+  document.getElementById('mp-my-att').textContent='ATT: '+attLeft;
+  const dir=document.getElementById('mp-my-dir');
+  dir.textContent=r==='correct'?'✓':r==='higher'?'▲':'▼';
+  dir.className='mp-dir '+(r==='correct'?'':r==='higher'?'hi':'lo');
+  if(r==='correct')dir.style.color='var(--pri)';else dir.style.color='';
+  const chips=document.getElementById('mp-my-chips');
+  const pending=document.getElementById('mpp'+v);if(pending)pending.remove();
+  const ph=chips.querySelector('span');if(ph)ph.remove();
+  const c=document.createElement('div');c.className='mp-chip';
+  c.innerHTML=`<span class="chip-num">${v}</span><span style="color:${r==='correct'?'var(--pri)':r==='higher'?'var(--pri)':'var(--sec)'}">${r==='correct'?'✓':r==='higher'?'▲':'▼'}</span>`;
+  chips.appendChild(c);
+  if(r==='higher')sfxHigher();else if(r==='lower')sfxLower();
 }
 function renderMPOppGuess(v,r,attLeft){
-if(attLeft!==undefined)document.getElementById(‘mp-opp-att’).textContent=‘ATT: ‘+attLeft;
-const dir=document.getElementById(‘mp-opp-dir’);
-dir.textContent=r===‘correct’?‘✓’:r===‘higher’?‘▲’:‘▼’;
-dir.className=‘mp-dir ‘+(r===‘correct’?’’:r===‘higher’?‘hi’:‘lo’);
-if(r===‘correct’)dir.style.color=‘var(–sec)’;else dir.style.color=’’;
-const chips=document.getElementById(‘mp-opp-chips’);
-const ph=chips.querySelector(‘span’);if(ph)ph.remove();
-const c=document.createElement(‘div’);c.className=‘mp-chip’;
-c.innerHTML=`<span class="chip-num">${v}</span><span style="color:${r==='correct'?'var(--sec)':r==='higher'?'var(--pri)':'var(--sec)'}">${r==='correct'?'✓':r==='higher'?'▲':'▼'}</span>`;
-chips.appendChild(c);document.getElementById(‘mp-opp-status’).textContent=`LAST: ${v} → ${r.toUpperCase()}`;
+  if(attLeft!==undefined)document.getElementById('mp-opp-att').textContent='ATT: '+attLeft;
+  const dir=document.getElementById('mp-opp-dir');
+  dir.textContent=r==='correct'?'✓':r==='higher'?'▲':'▼';
+  dir.className='mp-dir '+(r==='correct'?'':r==='higher'?'hi':'lo');
+  if(r==='correct')dir.style.color='var(--sec)';else dir.style.color='';
+  const chips=document.getElementById('mp-opp-chips');
+  const ph=chips.querySelector('span');if(ph)ph.remove();
+  const c=document.createElement('div');c.className='mp-chip';
+  c.innerHTML=`<span class="chip-num">${v}</span><span style="color:${r==='correct'?'var(--sec)':r==='higher'?'var(--pri)':'var(--sec)'}">${r==='correct'?'✓':r==='higher'?'▲':'▼'}</span>`;
+  chips.appendChild(c);document.getElementById('mp-opp-status').textContent=`LAST: ${v} → ${r.toUpperCase()}`;
 }
 function renderMPGame(min,max,att){
-document.getElementById(‘mp-game-range’).textContent=`RANGE: ${min}–${max}`;
-document.getElementById(‘mp-my-name’).textContent=playerName;
-document.getElementById(‘mp-my-att’).textContent=`ATT: ${att}`;document.getElementById(‘mp-opp-att’).textContent=`ATT: ${att}`;
-document.getElementById(‘mp-my-chips’).innerHTML=’<span style="font-size:8px;color:var(--mut);">NO GUESSES</span>’;
-document.getElementById(‘mp-opp-chips’).innerHTML=’<span style="font-size:8px;color:var(--mut);">WAITING…</span>’;
-[‘mp-my-dir’,‘mp-opp-dir’].forEach(id=>{const e=document.getElementById(id);e.textContent=’?’;e.className=‘mp-dir wt’;e.style.color=’’;});
-document.getElementById(‘mp-win-overlay’).classList.remove(‘visible’);
-document.getElementById(‘mp-my-input’).focus();
+  document.getElementById('mp-game-range').textContent=`RANGE: ${min}–${max}`;
+  document.getElementById('mp-my-name').textContent=playerName;
+  document.getElementById('mp-my-att').textContent=`ATT: ${att}`;document.getElementById('mp-opp-att').textContent=`ATT: ${att}`;
+  document.getElementById('mp-my-chips').innerHTML='<span style="font-size:8px;color:var(--mut);">NO GUESSES</span>';
+  document.getElementById('mp-opp-chips').innerHTML='<span style="font-size:8px;color:var(--mut);">WAITING...</span>';
+  ['mp-my-dir','mp-opp-dir'].forEach(id=>{const e=document.getElementById(id);e.textContent='?';e.className='mp-dir wt';e.style.color='';});
+  document.getElementById('mp-win-overlay').classList.remove('visible');
+  document.getElementById('mp-my-input').focus();
 }
 function mpEndGame(winner){
-if(mpGameOver)return;mpGameOver=true;
-const resolved=winner===‘host_opp’?‘host’:winner;
-const iWon=(resolved===‘host’&&mpIsHost)||(resolved===‘guest’&&!mpIsHost);
-const isDraw=resolved===‘draw’;
-if(mpIsHost&&mpConn)mpConn.send({type:‘game_over_sync’,winner:resolved,secret:mpSecret});
-if(iWon){mpWins++;currentStreak++;if(currentStreak>bestStreak)bestStreak=currentStreak;addCoins(70);sfxWin();}
-else if(isDraw){addCoins(10);sfxClick();}else{mpLosses++;currentStreak=0;sfxGameOver();}
-saveAll();checkAch({});setTimeout(()=>mpShowResult(resolved,mpSecret),600);
+  if(mpGameOver)return;mpGameOver=true;
+  const resolved=winner==='host_opp'?'host':winner;
+  const iWon=(resolved==='host'&&mpIsHost)||(resolved==='guest'&&!mpIsHost);
+  const isDraw=resolved==='draw';
+  if(mpIsHost&&mpConn)mpConn.send({type:'game_over_sync',winner:resolved,secret:mpSecret});
+  if(iWon){mpWins++;currentStreak++;if(currentStreak>bestStreak)bestStreak=currentStreak;addCoins(70);sfxWin();}
+  else if(isDraw){addCoins(10);sfxClick();}else{mpLosses++;currentStreak=0;sfxGameOver();}
+  saveAll();checkAch({});setTimeout(()=>mpShowResult(resolved,mpSecret),600);
 }
 function mpShowResult(winner,secret){
-const overlay=document.getElementById(‘mp-win-overlay’);
-const head=document.getElementById(‘mp-overlay-headline’),sub=document.getElementById(‘mp-overlay-sub’);
-const iWon=(winner===‘host’&&mpIsHost)||(winner===‘guest’&&!mpIsHost);
-const isDraw=winner===‘draw’;
-if(iWon){head.textContent=‘VICTORY’;head.style.color=‘var(–pri)’;}
-else if(isDraw){head.textContent=‘DRAW’;head.style.color=‘var(–warn)’;}
-else{head.textContent=‘DEFEATED’;head.style.color=‘var(–err)’;}
-sub.textContent=`SECRET: ${secret} | ${iWon?'+70 COINS':isDraw?'+10 COINS':'0 COINS'}`;
-overlay.classList.add(‘visible’);
+  const overlay=document.getElementById('mp-win-overlay');
+  const head=document.getElementById('mp-overlay-headline'),sub=document.getElementById('mp-overlay-sub');
+  const iWon=(winner==='host'&&mpIsHost)||(winner==='guest'&&!mpIsHost);
+  const isDraw=winner==='draw';
+  if(iWon){head.textContent='VICTORY';head.style.color='var(--pri)';}
+  else if(isDraw){head.textContent='DRAW';head.style.color='var(--warn)';}
+  else{head.textContent='DEFEATED';head.style.color='var(--err)';}
+  sub.textContent=`SECRET: ${secret} | ${iWon?'+70 COINS':isDraw?'+10 COINS':'0 COINS'}`;
+  overlay.classList.add('visible');
 }
-function mpRequestRematch(){unlockAudio();sfxBtn();if(mpIsHost){if(mpConn)mpInitGame();else setMpStatus(‘RECONNECT FIRST’,‘err’);}else{if(mpConn)mpConn.send({type:‘rematch’});setMpStatus(‘REMATCH REQUESTED…’,’’);}}
+function mpRequestRematch(){unlockAudio();sfxBtn();if(mpIsHost){if(mpConn)mpInitGame();else setMpStatus('RECONNECT FIRST','err');}else{if(mpConn)mpConn.send({type:'rematch'});setMpStatus('REMATCH REQUESTED...','');}}
 function mpQuit(){unlockAudio();sfxBtn();mpCleanup();goMenu();}
-function mpCleanup(){if(mpConn)try{mpConn.close();}catch(*){}if(mpPeer)try{mpPeer.destroy();}catch(*){}mpConn=null;mpPeer=null;mpGameOver=false;}
-function setMpStatus(msg,cls){const el=document.getElementById(‘mp-status’);if(!el)return;el.textContent=msg;el.className=‘mp-status’+(cls?’ ‘+cls:’’);}
-function genRoomCode(){const c=‘ABCDEFGHJKLMNPQRSTUVWXYZ23456789’;let s=’’;for(let i=0;i<6;i++)s+=c[Math.floor(Math.random()*c.length)];return s;}
+function mpCleanup(){if(mpConn)try{mpConn.close();}catch(_){}if(mpPeer)try{mpPeer.destroy();}catch(_){}mpConn=null;mpPeer=null;mpGameOver=false;}
+function setMpStatus(msg,cls){const el=document.getElementById('mp-status');if(!el)return;el.textContent=msg;el.className='mp-status'+(cls?' '+cls:'');}
+function genRoomCode(){const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<6;i++)s+=c[Math.floor(Math.random()*c.length)];return s;}
 
 /* ═══════════════════════════════════════════
-SHOP
+   SHOP
 ═══════════════════════════════════════════ */
 function renderShop(){
-document.getElementById(‘shop-coins-display’).textContent=‘◈ ‘+coins;
-const list=document.getElementById(‘shop-items-list’);list.innerHTML=’’;
-BASE_SHOP.forEach(item=>{
-const price=shopPrice(item,state.lvl);const owned=inventory[item.id]||0;
-const canBuy=coins>=price&&owned<item.max;
-const div=document.createElement(‘div’);div.className=‘shop-item’;
-div.innerHTML=`<div class="shop-item-icon">${item.icon}</div><div class="shop-item-info"><div class="shop-item-name">${item.name}</div><div class="shop-item-desc">${item.desc}</div></div><div class="shop-item-right"><div class="shop-item-cost">${price} ◈</div><div class="shop-item-stock">OWNED: <span>${owned}/${item.max}</span></div><button class="btn btn-coin btn-sm" onclick="buyItem('${item.id}')" ${canBuy?'':'disabled'}>BUY</button></div>`;
-list.appendChild(div);
-});
+  document.getElementById('shop-coins-display').textContent='◈ '+coins;
+  const list=document.getElementById('shop-items-list');list.innerHTML='';
+  BASE_SHOP.forEach(item=>{
+    const price=shopPrice(item,state.lvl);const owned=inventory[item.id]||0;
+    const canBuy=coins>=price&&owned<item.max;
+    const div=document.createElement('div');div.className='shop-item';
+    div.innerHTML=`<div class="shop-item-icon">${item.icon}</div><div class="shop-item-info"><div class="shop-item-name">${item.name}</div><div class="shop-item-desc">${item.desc}</div></div><div class="shop-item-right"><div class="shop-item-cost">${price} ◈</div><div class="shop-item-stock">OWNED: <span>${owned}/${item.max}</span></div><button class="btn btn-coin btn-sm" onclick="buyItem('${item.id}')" ${canBuy?'':'disabled'}>BUY</button></div>`;
+    list.appendChild(div);
+  });
 }
 function buyItem(type){
-const item=BASE_SHOP.find(i=>i.id===type);if(!item)return;
-const price=shopPrice(item,state.lvl);const owned=inventory[type]||0;
-if(owned>=item.max||coins<price){sfxCantAfford();const el=document.getElementById(‘shop-coins-display’);el.style.color=’#ff6e84’;setTimeout(()=>el.style.color=’’,700);return;}
-coins-=price;inventory[type]++;saveAll();sfxPurchase();renderShop();updateArsenal();updateHudCoins();
+  const item=BASE_SHOP.find(i=>i.id===type);if(!item)return;
+  const price=shopPrice(item,state.lvl);const owned=inventory[type]||0;
+  if(owned>=item.max||coins<price){sfxCantAfford();const el=document.getElementById('shop-coins-display');el.style.color='#ff6e84';setTimeout(()=>el.style.color='',700);return;}
+  coins-=price;inventory[type]++;saveAll();sfxPurchase();renderShop();updateArsenal();updateHudCoins();
 }
 
 /* ═══════════════════════════════════════════
-GAME CONSTANTS & STATE
+   GAME CONSTANTS & STATE
 ═══════════════════════════════════════════ */
 const LEVELS=[
-{num:1,name:‘BOOT SEQUENCE’, min:1,max:50, attempts:8, mult:1 },
-{num:2,name:‘SIGNAL INTERCEPT’,min:1,max:100, attempts:8, mult:1.5},
-{num:3,name:‘DEEP SCAN’, min:1,max:200, attempts:9, mult:2 },
-{num:4,name:‘GHOST PROTOCOL’, min:1,max:500, attempts:10,mult:3 },
-{num:5,name:‘VOID CORE’, min:1,max:1000,attempts:10,mult:5 },
+  {num:1,name:'BOOT SEQUENCE',   min:1,max:50,  attempts:8, mult:1  },
+  {num:2,name:'SIGNAL INTERCEPT',min:1,max:100, attempts:8, mult:1.5},
+  {num:3,name:'DEEP SCAN',       min:1,max:200, attempts:9, mult:2  },
+  {num:4,name:'GHOST PROTOCOL',  min:1,max:500, attempts:10,mult:3  },
+  {num:5,name:'VOID CORE',       min:1,max:1000,attempts:10,mult:5  },
 ];
 const TIME_SECONDS=45;
 let state={lvl:0,secret:0,attLeft:0,maxAtt:0,guesses:[],totalScore:0,lvlScores:[],firstGuess:true,itemsThisLvl:false,itemsThisRun:false,revealed:[],betAmt:0,feeCharged:0};
-let timeAttackMode=false,timerInt=null,timeLeft=45,prevScreen=‘screen-title’,currentBet=0;
+let timeAttackMode=false,timerInt=null,timeLeft=45,prevScreen='screen-title',currentBet=0;
 
 /* ═══════════════════════════════════════════
-NAVIGATION
+   NAVIGATION
 ═══════════════════════════════════════════ */
 function showScreen(id){
-document.querySelectorAll(’.screen’).forEach(s=>s.classList.remove(‘active’));
-var el=document.getElementById(id);if(el)el.classList.add(‘active’);
-if(bgmEngine){
-if(id===‘screen-game’)bgmEngine.setIntensity(‘tense’);
-else if(id===‘screen-win’||id===‘screen-finale’)bgmEngine.setIntensity(‘victory’);
-else bgmEngine.setIntensity(‘ambient’);
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  var el=document.getElementById(id);if(el)el.classList.add('active');
+  if(bgmEngine){
+    if(id==='screen-game')bgmEngine.setIntensity('tense');
+    else if(id==='screen-win'||id==='screen-finale')bgmEngine.setIntensity('victory');
+    else bgmEngine.setIntensity('ambient');
+  }
+  clearAmbientGlow();
 }
-clearAmbientGlow();
-}
-function goMenu(){unlockAudio();sfxBtn();stopTimer();clearAmbientGlow();state={lvl:0,secret:0,attLeft:0,maxAtt:0,guesses:[],totalScore:0,lvlScores:[],firstGuess:true,itemsThisLvl:false,itemsThisRun:false,revealed:[],betAmt:0,feeCharged:0};sessionWins=0;updateTitleBar();showScreen(‘screen-title’);}
-function goShop(){unlockAudio();sfxBtn();prevScreen=document.querySelector(’.screen.active’)?.id||‘screen-title’;renderShop();showScreen(‘screen-shop’);}
-function goShopFromGame(){unlockAudio();sfxBtn();prevScreen=document.querySelector(’.screen.active’)?.id||‘screen-title’;renderShop();showScreen(‘screen-shop’);}
-function goAchievements(){unlockAudio();sfxBtn();renderAchievements();prevScreen=document.querySelector(’.screen.active’)?.id||‘screen-title’;showScreen(‘screen-achievements’);}
-function goMultiplayer(){unlockAudio();sfxBtn();showScreen(‘screen-mp-lobby’);}
-function goBack(){unlockAudio();sfxBtn();showScreen(prevScreen||‘screen-title’);updateTitleBar();}
-function toggleTimeAttack(){unlockAudio();timeAttackMode=!timeAttackMode;const b=document.getElementById(‘time-toggle’);b.textContent=`[ ⏱ TIME ATTACK: ${timeAttackMode?'ON':'OFF'} ]`;b.className=‘mode-btn’+(timeAttackMode?’ on’:’’);sfxBtn();}
+function goMenu(){unlockAudio();sfxBtn();stopTimer();clearAmbientGlow();state={lvl:0,secret:0,attLeft:0,maxAtt:0,guesses:[],totalScore:0,lvlScores:[],firstGuess:true,itemsThisLvl:false,itemsThisRun:false,revealed:[],betAmt:0,feeCharged:0};sessionWins=0;updateTitleBar();showScreen('screen-title');}
+function goShop(){unlockAudio();sfxBtn();prevScreen=document.querySelector('.screen.active')?.id||'screen-title';renderShop();showScreen('screen-shop');}
+function goShopFromGame(){unlockAudio();sfxBtn();prevScreen=document.querySelector('.screen.active')?.id||'screen-title';renderShop();showScreen('screen-shop');}
+function goAchievements(){unlockAudio();sfxBtn();renderAchievements();prevScreen=document.querySelector('.screen.active')?.id||'screen-title';showScreen('screen-achievements');}
+function goMultiplayer(){unlockAudio();sfxBtn();showScreen('screen-mp-lobby');}
+function goBack(){unlockAudio();sfxBtn();showScreen(prevScreen||'screen-title');updateTitleBar();}
+function toggleTimeAttack(){unlockAudio();timeAttackMode=!timeAttackMode;const b=document.getElementById('time-toggle');b.textContent=`[ ⏱ TIME ATTACK: ${timeAttackMode?'ON':'OFF'} ]`;b.className='mode-btn'+(timeAttackMode?' on':'');sfxBtn();}
 function updateTitleBar(){
-document.getElementById(‘title-coins’).textContent=coins;
-document.getElementById(‘title-streak’).textContent=bestStreak;
-document.getElementById(‘title-ach’).textContent=`${countUnlockedTiers()}/${TOTAL_TIERS}`;
-document.getElementById(‘title-runs’).textContent=fullRunsCompleted;
-document.getElementById(‘player-name-input’).value=playerName;
+  document.getElementById('title-coins').textContent=coins;
+  document.getElementById('title-streak').textContent=bestStreak;
+  document.getElementById('title-ach').textContent=`${countUnlockedTiers()}/${TOTAL_TIERS}`;
+  document.getElementById('title-runs').textContent=fullRunsCompleted;
+  document.getElementById('player-name-input').value=playerName;
 }
 
 /* ═══════════════════════════════════════════
-AMBIENT GLOW — “Getting Warm” Feedback
+   AMBIENT GLOW — "Getting Warm" Feedback
 ═══════════════════════════════════════════ */
 function clearAmbientGlow(){
-const g=document.getElementById(‘ambient-glow’);const m=document.getElementById(‘game-main’);
-if(g){g.className=’’;g.style.opacity=‘0’;}
-if(m){m.classList.remove(‘warm’,‘hot’);}
+  const g=document.getElementById('ambient-glow');const m=document.getElementById('game-main');
+  if(g){g.className='';g.style.opacity='0';}
+  if(m){m.classList.remove('warm','hot');}
 }
 function updateAmbientGlow(guess,secret,min,max){
-const range=max-min;const dist=Math.abs(guess-secret);
-const pct=dist/range;
-const glow=document.getElementById(‘ambient-glow’);const gm=document.getElementById(‘game-main’);
-if(pct<.05){// Very hot — within 5%
-if(glow)glow.className=‘hot’;if(gm){gm.classList.remove(‘warm’);gm.classList.add(‘hot’);}
-}else if(pct<.15){// Warm — within 15%
-if(glow)glow.className=‘warm’;if(gm){gm.classList.remove(‘hot’);gm.classList.add(‘warm’);}
-}else{
-if(glow){glow.className=’’;glow.style.opacity=‘0’;}if(gm){gm.classList.remove(‘warm’,‘hot’);}
-}
+  const range=max-min;const dist=Math.abs(guess-secret);
+  const pct=dist/range;
+  const glow=document.getElementById('ambient-glow');const gm=document.getElementById('game-main');
+  if(pct<.05){// Very hot — within 5%
+    if(glow)glow.className='hot';if(gm){gm.classList.remove('warm');gm.classList.add('hot');}
+  }else if(pct<.15){// Warm — within 15%
+    if(glow)glow.className='warm';if(gm){gm.classList.remove('hot');gm.classList.add('warm');}
+  }else{
+    if(glow){glow.className='';glow.style.opacity='0';}if(gm){gm.classList.remove('warm','hot');}
+  }
 }
 
 /* ═══════════════════════════════════════════
-BETTING
+   BETTING
 ═══════════════════════════════════════════ */
 function openBetScreen(){
-const lvl=LEVELS[state.lvl];
-document.getElementById(‘bet-level-info’).textContent=`LEVEL 0${lvl.num} — ${lvl.name}`;
-document.getElementById(‘bet-range-info’).textContent=`${lvl.min}–${lvl.max}`;
-document.getElementById(‘bet-coins-display’).textContent=`${coins} ◈`;
-const fee=ENTRY_FEES[state.lvl];
-const fw=document.getElementById(‘bet-fee-warn’);
-if(fee>0){document.getElementById(‘bet-fee-amt’).textContent=fee;fw.classList.add(‘visible’);}else fw.classList.remove(‘visible’);
-state.betAmt=0;setBetPreset(0);showScreen(‘screen-bet’);
+  const lvl=LEVELS[state.lvl];
+  document.getElementById('bet-level-info').textContent=`LEVEL 0${lvl.num} — ${lvl.name}`;
+  document.getElementById('bet-range-info').textContent=`${lvl.min}–${lvl.max}`;
+  document.getElementById('bet-coins-display').textContent=`${coins} ◈`;
+  const fee=ENTRY_FEES[state.lvl];
+  const fw=document.getElementById('bet-fee-warn');
+  if(fee>0){document.getElementById('bet-fee-amt').textContent=fee;fw.classList.add('visible');}else fw.classList.remove('visible');
+  state.betAmt=0;setBetPreset(0);showScreen('screen-bet');
 }
 function setBetPreset(amt){
-let actual=amt===9999?Math.min(coins,BET_CAP):Math.min(Math.min(amt,coins),BET_CAP);
-currentBet=actual;
-document.querySelectorAll(’.bet-preset’).forEach(b=>b.classList.toggle(‘active’,parseInt(b.dataset.amt)===amt));
-document.getElementById(‘bet-win-preview’).textContent=`+${Math.floor(currentBet*BET_MULT)} ◈`;
-document.getElementById(‘bet-loss-preview’).textContent=`-${currentBet} ◈`;
-sfxClick();
+  let actual=amt===9999?Math.min(coins,BET_CAP):Math.min(Math.min(amt,coins),BET_CAP);
+  currentBet=actual;
+  document.querySelectorAll('.bet-preset').forEach(b=>b.classList.toggle('active',parseInt(b.dataset.amt)===amt));
+  document.getElementById('bet-win-preview').textContent=`+${Math.floor(currentBet*BET_MULT)} ◈`;
+  document.getElementById('bet-loss-preview').textContent=`-${currentBet} ◈`;
+  sfxClick();
 }
 function confirmBetAndPlay(){
-state.betAmt=currentBet;
-const fee=ENTRY_FEES[state.lvl];
-if(fee>0&&coins>=fee){coins=Math.max(0,coins-fee);state.feeCharged=fee;saveAll();}else state.feeCharged=0;
-sfxClick();startLevel();
+  state.betAmt=currentBet;
+  const fee=ENTRY_FEES[state.lvl];
+  if(fee>0&&coins>=fee){coins=Math.max(0,coins-fee);state.feeCharged=fee;saveAll();}else state.feeCharged=0;
+  sfxClick();startLevel();
 }
 
 /* ═══════════════════════════════════════════
-GAME FLOW
+   GAME FLOW
 ═══════════════════════════════════════════ */
 function startGame(){unlockAudio();sfxBtn();sessionWins=0;state={lvl:0,secret:0,attLeft:0,maxAtt:0,guesses:[],totalScore:0,lvlScores:[],firstGuess:true,itemsThisLvl:false,itemsThisRun:false,revealed:[],betAmt:0,feeCharged:0};openBetScreen();}
 function startLevel(){
-const lvl=LEVELS[state.lvl];
-state.secret=Math.floor(Math.random()*(lvl.max-lvl.min+1))+lvl.min;
-state.attLeft=lvl.attempts;state.maxAtt=lvl.attempts;
-state.guesses=[];state.firstGuess=true;state.itemsThisLvl=false;state.revealed=[];
-document.getElementById(‘hud-level-num’).textContent=`LEVEL 0${lvl.num}`;
-document.getElementById(‘hud-level-name’).textContent=lvl.name;
-document.getElementById(‘hud-score’).textContent=state.totalScore;
-document.getElementById(‘range-display’).textContent=`${lvl.min} — ${lvl.max}`;
-document.getElementById(‘hud’).classList.remove(‘danger-pulse’);
-document.getElementById(‘over-headline’).textContent=‘CONNECTION LOST’;
-document.getElementById(‘over-sub’).textContent=‘SESSION TERMINATED’;
-updateHudCoins();updateHudStreak();renderHealthBar();resetDir();clearChips();clearInput();clearMsg();hideReveal();updateArsenal();clearAmbientGlow();
-submitGuess._pending=false; // reset double-fire guard
-showScreen(‘screen-game’);setTimeout(()=>sfxLevelStart(),80);
-if(timeAttackMode)startTimer();else stopTimer();
-document.getElementById(‘guess-input’).focus();
+  const lvl=LEVELS[state.lvl];
+  state.secret=Math.floor(Math.random()*(lvl.max-lvl.min+1))+lvl.min;
+  state.attLeft=lvl.attempts;state.maxAtt=lvl.attempts;
+  state.guesses=[];state.firstGuess=true;state.itemsThisLvl=false;state.revealed=[];
+  document.getElementById('hud-level-num').textContent=`LEVEL 0${lvl.num}`;
+  document.getElementById('hud-level-name').textContent=lvl.name;
+  document.getElementById('hud-score').textContent=state.totalScore;
+  document.getElementById('range-display').textContent=`${lvl.min} — ${lvl.max}`;
+  document.getElementById('hud').classList.remove('danger-pulse');
+  document.getElementById('over-headline').textContent='CONNECTION LOST';
+  document.getElementById('over-sub').textContent='SESSION TERMINATED';
+  updateHudCoins();updateHudStreak();renderHealthBar();resetDir();clearChips();clearInput();clearMsg();hideReveal();updateArsenal();clearAmbientGlow();
+  submitGuess._pending=false; // reset double-fire guard
+  showScreen('screen-game');setTimeout(()=>sfxLevelStart(),80);
+  if(timeAttackMode)startTimer();else stopTimer();
+  document.getElementById('guess-input').focus();
 }
 function nextLevel(){sfxClick();state.lvl++;openBetScreen();}
 function retryLevel(){sfxClick();openBetScreen();}
 
 /* TIMER */
 function startTimer(){
-stopTimer();timeLeft=TIME_SECONDS;document.getElementById(‘timer-row’).classList.add(‘vis’);renderTimer();
-timerInt=setInterval(()=>{
-timeLeft–;renderTimer();
-if(timeLeft===12)sfxTimerWarn();if(timeLeft<=5&&timeLeft>0)sfxTimerTick();
-if(timeLeft<=0){stopTimer();sfxGameOver();submitGuess._pending=false;document.getElementById(‘over-headline’).textContent=‘TIME EXPIRED’;document.getElementById(‘over-sub’).textContent=‘THE CLOCK RAN OUT’;setTimeout(function(){gameOver(false,0);},100);}
-},1000);
+  stopTimer();timeLeft=TIME_SECONDS;document.getElementById('timer-row').classList.add('vis');renderTimer();
+  timerInt=setInterval(()=>{
+    timeLeft--;renderTimer();
+    if(timeLeft===12)sfxTimerWarn();if(timeLeft<=5&&timeLeft>0)sfxTimerTick();
+    if(timeLeft<=0){stopTimer();sfxGameOver();submitGuess._pending=false;document.getElementById('over-headline').textContent='TIME EXPIRED';document.getElementById('over-sub').textContent='THE CLOCK RAN OUT';setTimeout(function(){gameOver(false,0);},100);}
+  },1000);
 }
-function stopTimer(){if(timerInt){clearInterval(timerInt);timerInt=null;}var tr=document.getElementById(‘timer-row’);if(tr)tr.classList.remove(‘vis’);}
+function stopTimer(){if(timerInt){clearInterval(timerInt);timerInt=null;}var tr=document.getElementById('timer-row');if(tr)tr.classList.remove('vis');}
 function renderTimer(){
-const bar=document.getElementById(‘timer-bar’),val=document.getElementById(‘timer-val’);if(!bar)return;
-bar.innerHTML=’’;const segs=15,filled=Math.ceil((timeLeft/TIME_SECONDS)*segs);
-for(let i=0;i<segs;i++){const s=document.createElement(‘div’);s.className=‘t-seg’+(i>=filled?’ dep’:timeLeft<=5?’ d’:timeLeft<=12?’ w’:’’);bar.appendChild(s);}
-val.textContent=timeLeft+‘s’;val.className=‘timer-val’+(timeLeft<=5?’ d’:timeLeft<=12?’ w’:’’);
+  const bar=document.getElementById('timer-bar'),val=document.getElementById('timer-val');if(!bar)return;
+  bar.innerHTML='';const segs=15,filled=Math.ceil((timeLeft/TIME_SECONDS)*segs);
+  for(let i=0;i<segs;i++){const s=document.createElement('div');s.className='t-seg'+(i>=filled?' dep':timeLeft<=5?' d':timeLeft<=12?' w':'');bar.appendChild(s);}
+  val.textContent=timeLeft+'s';val.className='timer-val'+(timeLeft<=5?' d':timeLeft<=12?' w':'');
 }
 
 /* HUD HELPERS */
 function renderHealthBar(){
-const bar=document.getElementById(‘health-bar’);bar.innerHTML=’’;
-for(let i=0;i<state.maxAtt;i++){const s=document.createElement(‘div’);s.className=‘health-seg’+(i>=state.attLeft?’ dep’:state.attLeft<=3?’ danger’:’’);bar.appendChild(s);}
+  const bar=document.getElementById('health-bar');bar.innerHTML='';
+  for(let i=0;i<state.maxAtt;i++){const s=document.createElement('div');s.className='health-seg'+(i>=state.attLeft?' dep':state.attLeft<=3?' danger':'');bar.appendChild(s);}
 }
-function resetDir(){document.getElementById(‘dir-arrow’).textContent=’?’;document.getElementById(‘dir-arrow’).className=‘direction-arrow dir-w’;document.getElementById(‘dir-text’).textContent=‘ENTER YOUR FIRST GUESS’;document.getElementById(‘dir-text’).className=‘direction-text dir-w’;}
-function clearChips(){document.getElementById(‘chips-wrap’).innerHTML=’<span style="font-size:9px;color:var(--mut);letter-spacing:2px;">NO SCANS YET</span>’;}
-function clearInput(){document.getElementById(‘guess-input’).value=’’;document.getElementById(‘input-row’).classList.remove(‘err’);}
-function clearMsg(){document.getElementById(‘terminal-msg’).textContent=’’;}
-function showMsg(txt,col){const el=document.getElementById(‘terminal-msg’);el.textContent=txt;el.style.color=col||‘var(–err)’;}
-function hideReveal(){document.getElementById(‘reveal-display’).classList.remove(‘vis’);}
-function updateHudCoins(){const e=document.getElementById(‘hud-coins’);if(e)e.textContent=coins;}
-function updateHudStreak(){const e=document.getElementById(‘hud-streak’);if(!e)return;if(currentStreak>=1){e.textContent=`▲ x${currentStreak}`;e.className=‘streak-hud’+(currentStreak>=5?’ hot’:’’);}else e.textContent=’’;}
+function resetDir(){document.getElementById('dir-arrow').textContent='?';document.getElementById('dir-arrow').className='direction-arrow dir-w';document.getElementById('dir-text').textContent='ENTER YOUR FIRST GUESS';document.getElementById('dir-text').className='direction-text dir-w';}
+function clearChips(){document.getElementById('chips-wrap').innerHTML='<span style="font-size:9px;color:var(--mut);letter-spacing:2px;">NO SCANS YET</span>';}
+function clearInput(){document.getElementById('guess-input').value='';document.getElementById('input-row').classList.remove('err');}
+function clearMsg(){document.getElementById('terminal-msg').textContent='';}
+function showMsg(txt,col){const el=document.getElementById('terminal-msg');el.textContent=txt;el.style.color=col||'var(--err)';}
+function hideReveal(){document.getElementById('reveal-display').classList.remove('vis');}
+function updateHudCoins(){const e=document.getElementById('hud-coins');if(e)e.textContent=coins;}
+function updateHudStreak(){const e=document.getElementById('hud-streak');if(!e)return;if(currentStreak>=1){e.textContent=`▲ x${currentStreak}`;e.className='streak-hud'+(currentStreak>=5?' hot':'');}else e.textContent='';}
 function updateArsenal(){
-const total=Object.values(inventory).reduce((s,v)=>s+v,0);
-document.getElementById(‘arsenal’).className=total>0?‘arsenal vis’:‘arsenal’;
-[‘hints’,‘attempts’,‘reveals’,‘freeze’].forEach(k=>{const e=document.getElementById(‘badge-’+k);if(e)e.textContent=inventory[k]||0;});
-[[‘btn-hint’,‘hints’],[‘btn-attempt’,‘attempts’],[‘btn-reveal’,‘reveals’],[‘btn-freeze’,‘freeze’]].forEach(([id,k])=>{const b=document.getElementById(id);if(b)b.disabled=(inventory[k]||0)<=0;});
-const fb=document.getElementById(‘btn-freeze’);if(fb)fb.style.display=timeAttackMode?’’:‘none’;
+  const total=Object.values(inventory).reduce((s,v)=>s+v,0);
+  document.getElementById('arsenal').className=total>0?'arsenal vis':'arsenal';
+  ['hints','attempts','reveals','freeze'].forEach(k=>{const e=document.getElementById('badge-'+k);if(e)e.textContent=inventory[k]||0;});
+  [['btn-hint','hints'],['btn-attempt','attempts'],['btn-reveal','reveals'],['btn-freeze','freeze']].forEach(([id,k])=>{const b=document.getElementById(id);if(b)b.disabled=(inventory[k]||0)<=0;});
+  const fb=document.getElementById('btn-freeze');if(fb)fb.style.display=timeAttackMode?'':'none';
 }
 function addChip(num,dir){
-const wrap=document.getElementById(‘chips-wrap’);const ph=wrap.querySelector(‘span’);if(ph)ph.remove();
-const chip=document.createElement(‘div’);chip.className=‘chip’;
-const arrow=dir===‘up’?’<span class="chip-u">▲</span>’:dir===‘down’?’<span class="chip-d">▼</span>’:’<span style="color:var(--pri)">✓</span>’;
-chip.innerHTML=`<span class="chip-num">${num}</span>${arrow}`;wrap.appendChild(chip);
+  const wrap=document.getElementById('chips-wrap');const ph=wrap.querySelector('span');if(ph)ph.remove();
+  const chip=document.createElement('div');chip.className='chip';
+  const arrow=dir==='up'?'<span class="chip-u">▲</span>':dir==='down'?'<span class="chip-d">▼</span>':'<span style="color:var(--pri)">✓</span>';
+  chip.innerHTML=`<span class="chip-num">${num}</span>${arrow}`;wrap.appendChild(chip);
 }
 
 /* ═══════════════════════════════════════════
-ITEMS
+   ITEMS
 ═══════════════════════════════════════════ */
 function markItemUsed(){state.itemsThisLvl=true;state.itemsThisRun=true;}
 function useHint(){
-if(!inventory.hints)return;inventory.hints–;markItemUsed();saveAll();sfxPurchase();updateArsenal();
-const lvl=LEVELS[state.lvl];let lo=lvl.min,hi=lvl.max;
-state.guesses.forEach(g=>{if(g<state.secret)lo=Math.max(lo,g+1);if(g>state.secret)hi=Math.min(hi,g-1);});
-const mid=Math.floor((lo+hi)/2);const upper=state.secret>mid;
-showMsg(`◈ HINT: IN ${upper?'UPPER':'LOWER'} HALF — ${upper?mid+1:lo}–${upper?hi:mid}`,‘var(–ter)’);
+  if(!inventory.hints)return;inventory.hints--;markItemUsed();saveAll();sfxPurchase();updateArsenal();
+  const lvl=LEVELS[state.lvl];let lo=lvl.min,hi=lvl.max;
+  state.guesses.forEach(g=>{if(g<state.secret)lo=Math.max(lo,g+1);if(g>state.secret)hi=Math.min(hi,g-1);});
+  const mid=Math.floor((lo+hi)/2);const upper=state.secret>mid;
+  showMsg(`◈ HINT: IN ${upper?'UPPER':'LOWER'} HALF — ${upper?mid+1:lo}–${upper?hi:mid}`,'var(--ter)');
 }
 function useExtraAttempt(){
-if(!inventory.attempts)return;inventory.attempts–;markItemUsed();saveAll();sfxPurchase();
-state.attLeft++;state.maxAtt++;renderHealthBar();updateArsenal();
-document.getElementById(‘hud’).classList.remove(‘danger-pulse’);showMsg(‘▲ +1 ATTEMPT ADDED’,‘var(–ter)’);
+  if(!inventory.attempts)return;inventory.attempts--;markItemUsed();saveAll();sfxPurchase();
+  state.attLeft++;state.maxAtt++;renderHealthBar();updateArsenal();
+  document.getElementById('hud').classList.remove('danger-pulse');showMsg('▲ +1 ATTEMPT ADDED','var(--ter)');
 }
 function useReveal(){
-if(!inventory.reveals)return;inventory.reveals–;markItemUsed();saveAll();sfxPurchase();updateArsenal();
-const s=String(state.secret);const avail=[];
-for(let i=0;i<s.length;i++)if(!state.revealed.includes(i))avail.push(i);
-if(!avail.length){inventory.reveals++;saveAll();updateArsenal();showMsg(‘◉ ALL DIGITS REVEALED’,‘var(–ter)’);return;}
-const pos=avail[Math.floor(Math.random()*avail.length)];state.revealed.push(pos);
-let display=’’;for(let i=0;i<s.length;i++){if(i>0)display+=’ ‘;display+=state.revealed.includes(i)?s[i]:’_’;}
-document.getElementById(‘reveal-display-val’).textContent=display;document.getElementById(‘reveal-display’).classList.add(‘vis’);
-showMsg(‘◉ DIGIT REVEALED’,‘var(–ter)’);
+  if(!inventory.reveals)return;inventory.reveals--;markItemUsed();saveAll();sfxPurchase();updateArsenal();
+  const s=String(state.secret);const avail=[];
+  for(let i=0;i<s.length;i++)if(!state.revealed.includes(i))avail.push(i);
+  if(!avail.length){inventory.reveals++;saveAll();updateArsenal();showMsg('◉ ALL DIGITS REVEALED','var(--ter)');return;}
+  const pos=avail[Math.floor(Math.random()*avail.length)];state.revealed.push(pos);
+  let display='';for(let i=0;i<s.length;i++){if(i>0)display+=' ';display+=state.revealed.includes(i)?s[i]:'_';}
+  document.getElementById('reveal-display-val').textContent=display;document.getElementById('reveal-display').classList.add('vis');
+  showMsg('◉ DIGIT REVEALED','var(--ter)');
 }
 function useTimeFreeze(){
-if(!inventory.freeze||!timeAttackMode)return;inventory.freeze–;markItemUsed();saveAll();sfxPurchase();updateArsenal();
-timeLeft=Math.min(TIME_SECONDS,timeLeft+8);renderTimer();showMsg(‘⏱ +8 SECONDS ADDED’,‘var(–ter)’);
+  if(!inventory.freeze||!timeAttackMode)return;inventory.freeze--;markItemUsed();saveAll();sfxPurchase();updateArsenal();
+  timeLeft=Math.min(TIME_SECONDS,timeLeft+8);renderTimer();showMsg('⏱ +8 SECONDS ADDED','var(--ter)');
 }
 
 /* ═══════════════════════════════════════════
-CORE GUESS LOGIC
+   CORE GUESS LOGIC
 ═══════════════════════════════════════════ */
-function handleKey(e){if(e.key!==‘Enter’)sfxKeyPress();else submitGuess();}
+function handleKey(e){if(e.key!=='Enter')sfxKeyPress();else submitGuess();}
 function submitGuess(){
-// Guard: prevent double-fire if button tapped twice rapidly
-if(submitGuess._pending)return;
-const inp=document.getElementById(‘guess-input’),val=parseInt(inp.value),lvl=LEVELS[state.lvl];
-const row=document.getElementById(‘input-row’);
-if(isNaN(val)||val<lvl.min||val>lvl.max){sfxInvalid();row.classList.remove(‘err’);row.offsetHeight;row.classList.add(‘err’);showMsg(`INVALID — RANGE ${lvl.min} TO ${lvl.max}`);return;}
-if(state.guesses.includes(val)){sfxDuplicate();row.classList.remove(‘err’);row.offsetHeight;row.classList.add(‘err’);showMsg(‘ALREADY SCANNED’);return;}
-clearMsg();clearInput();row.classList.remove(‘err’);
-state.guesses.push(val);
-const isFirst=state.firstGuess;state.firstGuess=false;state.attLeft–;
-addChip(val,val<state.secret?‘up’:val>state.secret?‘down’:‘exact’);
-renderHealthBar();
+  // Guard: prevent double-fire if button tapped twice rapidly
+  if(submitGuess._pending)return;
+  const inp=document.getElementById('guess-input'),val=parseInt(inp.value),lvl=LEVELS[state.lvl];
+  const row=document.getElementById('input-row');
+  if(isNaN(val)||val<lvl.min||val>lvl.max){sfxInvalid();row.classList.remove('err');row.offsetHeight;row.classList.add('err');showMsg(`INVALID — RANGE ${lvl.min} TO ${lvl.max}`);return;}
+  if(state.guesses.includes(val)){sfxDuplicate();row.classList.remove('err');row.offsetHeight;row.classList.add('err');showMsg('ALREADY SCANNED');return;}
+  clearMsg();clearInput();row.classList.remove('err');
+  state.guesses.push(val);
+  const isFirst=state.firstGuess;state.firstGuess=false;state.attLeft--;
+  addChip(val,val<state.secret?'up':val>state.secret?'down':'exact');
+  renderHealthBar();
 
-// Update ambient glow
-updateAmbientGlow(val,state.secret,lvl.min,lvl.max);
+  // Update ambient glow
+  updateAmbientGlow(val,state.secret,lvl.min,lvl.max);
 
-if(val===state.secret){
-submitGuess._pending=true; // prevent re-entry
-stopTimer();clearAmbientGlow();
-const tL=timeLeft,earned=calcWinScore(state.attLeft,state.maxAtt,lvl.mult,isFirst,tL);
-const coinsE=calcWinCoins(state.attLeft,state.maxAtt,lvl.mult,isFirst,state.betAmt,tL);
-const lastAtt=state.attLeft===0;
-state.totalScore+=earned;state.lvlScores.push(earned);
-totalWins++;sessionWins++;currentStreak++;if(currentStreak>bestStreak)bestStreak=currentStreak;
-if(state.betAmt>0){betsWon++;betsTotal++;}
-addCoins(coinsE);document.getElementById(‘hud-score’).textContent=state.totalScore;saveAll();
-setTimeout(()=>isFirst?sfxPerfect():sfxWin(),60);
-// Increment fullRunsCompleted BEFORE checkAch so runner achievement
-// correctly triggers on the same run that completes level 5
-if(state.lvl===LEVELS.length-1) fullRunsCompleted++;
-checkAch({guesses:state.guesses.length,isFirst,noItems:!state.itemsThisLvl,tLeft:tL,levelIdx:state.lvl,lastAttempt:lastAtt,win:true,bigBetWin:state.betAmt>=100&&betsWon>0,cleanRun:!state.itemsThisRun&&state.lvl===4});
-if(state.lvl===LEVELS.length-1){saveAll();setTimeout(()=>showFinale(),400);}
-else setTimeout(()=>showWin(earned,coinsE,isFirst,val,tL),400);
-return;
-}
-if(state.attLeft===0){
-stopTimer();clearAmbientGlow();
-if(state.betAmt>0){betsTotal++;coins=Math.max(0,coins-state.betAmt);saveAll();}
-const penalty=lossCoinsPenalty();coins=Math.max(0,coins-penalty);totalLosses++;currentStreak=0;saveAll();
-setTimeout(()=>{sfxGameOver();gameOver(true,penalty);},60);return;
-}
-const higher=val<state.secret,willDanger=state.attLeft<=3;
-sfxSubmit();setTimeout(()=>willDanger?sfxDanger():(higher?sfxHigher():sfxLower()),130);
-const arrow=document.getElementById(‘dir-arrow’),txt=document.getElementById(‘dir-text’);
-arrow.textContent=higher?‘▲’:‘▼’;arrow.className=`direction-arrow ${higher?'dir-h':'dir-l'}`;
-arrow.style.animation=‘none’;arrow.offsetHeight;arrow.style.animation=‘aApp .2s steps(4,end)’;
-txt.textContent=higher?‘GUESS HIGHER’:‘GUESS LOWER’;txt.className=`direction-text ${higher?'dir-h':'dir-l'}`;
-if(willDanger)document.getElementById(‘hud’).classList.add(‘danger-pulse’);
-if(state.attLeft===1)showMsg(‘WARNING — FINAL ATTEMPT’,‘var(–err)’);
-document.getElementById(‘guess-input’).focus();
+  if(val===state.secret){
+    submitGuess._pending=true; // prevent re-entry
+    stopTimer();clearAmbientGlow();
+    const tL=timeLeft,earned=calcWinScore(state.attLeft,state.maxAtt,lvl.mult,isFirst,tL);
+    const coinsE=calcWinCoins(state.attLeft,state.maxAtt,lvl.mult,isFirst,state.betAmt,tL);
+    const lastAtt=state.attLeft===0;
+    state.totalScore+=earned;state.lvlScores.push(earned);
+    totalWins++;sessionWins++;currentStreak++;if(currentStreak>bestStreak)bestStreak=currentStreak;
+    if(state.betAmt>0){betsWon++;betsTotal++;}
+    addCoins(coinsE);document.getElementById('hud-score').textContent=state.totalScore;saveAll();
+    setTimeout(()=>isFirst?sfxPerfect():sfxWin(),60);
+    // Increment fullRunsCompleted BEFORE checkAch so runner achievement
+    // correctly triggers on the same run that completes level 5
+    if(state.lvl===LEVELS.length-1) fullRunsCompleted++;
+    checkAch({guesses:state.guesses.length,isFirst,noItems:!state.itemsThisLvl,tLeft:tL,levelIdx:state.lvl,lastAttempt:lastAtt,win:true,bigBetWin:state.betAmt>=100&&betsWon>0,cleanRun:!state.itemsThisRun&&state.lvl===4});
+    if(state.lvl===LEVELS.length-1){saveAll();setTimeout(()=>showFinale(),400);}
+    else setTimeout(()=>showWin(earned,coinsE,isFirst,val,tL),400);
+    return;
+  }
+  if(state.attLeft===0){
+    stopTimer();clearAmbientGlow();
+    if(state.betAmt>0){betsTotal++;coins=Math.max(0,coins-state.betAmt);saveAll();}
+    const penalty=lossCoinsPenalty();coins=Math.max(0,coins-penalty);totalLosses++;currentStreak=0;saveAll();
+    setTimeout(()=>{sfxGameOver();gameOver(true,penalty);},60);return;
+  }
+  const higher=val<state.secret,willDanger=state.attLeft<=3;
+  sfxSubmit();setTimeout(()=>willDanger?sfxDanger():(higher?sfxHigher():sfxLower()),130);
+  const arrow=document.getElementById('dir-arrow'),txt=document.getElementById('dir-text');
+  arrow.textContent=higher?'▲':'▼';arrow.className=`direction-arrow ${higher?'dir-h':'dir-l'}`;
+  arrow.style.animation='none';arrow.offsetHeight;arrow.style.animation='aApp .2s steps(4,end)';
+  txt.textContent=higher?'GUESS HIGHER':'GUESS LOWER';txt.className=`direction-text ${higher?'dir-h':'dir-l'}`;
+  if(willDanger)document.getElementById('hud').classList.add('danger-pulse');
+  if(state.attLeft===1)showMsg('WARNING — FINAL ATTEMPT','var(--err)');
+  document.getElementById('guess-input').focus();
 }
 
 /* ═══════════════════════════════════════════
-WIN / LOSE SCREENS
+   WIN / LOSE SCREENS
 ═══════════════════════════════════════════ */
 function showWin(earned,coinsE,isFirst,num,tL){
-const lvl=LEVELS[state.lvl];
-document.getElementById(‘win-score’).textContent=earned;
-document.getElementById(‘win-guesses’).textContent=lvl.attempts-state.attLeft;
-document.getElementById(‘win-number’).textContent=num;
-document.getElementById(‘win-coins-earned’).textContent=`◈ +${coinsE} COINS`;
-const c=document.getElementById(‘win-container’),badge=document.getElementById(‘perfect-badge’);
-if(isFirst){c.classList.add(‘perfect-breach’);document.getElementById(‘win-headline’).textContent=‘PERFECT BREACH’;document.getElementById(‘win-sub’).textContent=`FIRST GUESS — LEVEL ${lvl.num} OBLITERATED`;badge.style.display=‘inline-block’;}
-else{c.classList.remove(‘perfect-breach’);document.getElementById(‘win-headline’).textContent=‘ACCESS GRANTED’;document.getElementById(‘win-sub’).textContent=`LEVEL ${lvl.num} CLEARED`;badge.style.display=‘none’;}
-const sd=document.getElementById(‘win-streak-display’);
-if(currentStreak>1){sd.style.display=‘block’;document.getElementById(‘win-streak-val’).textContent=`▲ STREAK x${currentStreak} — BONUS ACTIVE`;}else sd.style.display=‘none’;
-document.getElementById(‘win-next-btn’).style.display=state.lvl<LEVELS.length-1?’’:‘none’;
-prevScreen=‘screen-win’;showScreen(‘screen-win’);
+  const lvl=LEVELS[state.lvl];
+  document.getElementById('win-score').textContent=earned;
+  document.getElementById('win-guesses').textContent=lvl.attempts-state.attLeft;
+  document.getElementById('win-number').textContent=num;
+  document.getElementById('win-coins-earned').textContent=`◈ +${coinsE} COINS`;
+  const c=document.getElementById('win-container'),badge=document.getElementById('perfect-badge');
+  if(isFirst){c.classList.add('perfect-breach');document.getElementById('win-headline').textContent='PERFECT BREACH';document.getElementById('win-sub').textContent=`FIRST GUESS — LEVEL ${lvl.num} OBLITERATED`;badge.style.display='inline-block';}
+  else{c.classList.remove('perfect-breach');document.getElementById('win-headline').textContent='ACCESS GRANTED';document.getElementById('win-sub').textContent=`LEVEL ${lvl.num} CLEARED`;badge.style.display='none';}
+  const sd=document.getElementById('win-streak-display');
+  if(currentStreak>1){sd.style.display='block';document.getElementById('win-streak-val').textContent=`▲ STREAK x${currentStreak} — BONUS ACTIVE`;}else sd.style.display='none';
+  document.getElementById('win-next-btn').style.display=state.lvl<LEVELS.length-1?'':'none';
+  prevScreen='screen-win';showScreen('screen-win');
 }
 function gameOver(hadStreak,penalty){
-document.getElementById(‘over-number’).textContent=state.secret;
-document.getElementById(‘over-score’).textContent=state.totalScore;
-const el=document.getElementById(‘over-number’);el.style.animation=‘none’;el.offsetHeight;
-el.style.animation=‘numReveal .5s steps(8,end) both .3s’;el.style.opacity=‘0’;
-const sl=document.getElementById(‘streak-lost’);
-if(hadStreak){sl.textContent=`▲ WIN STREAK BROKEN`;sl.classList.add(‘vis’);}else sl.classList.remove(‘vis’);
-const pn=document.getElementById(‘penalty-notice’);
-if(penalty>0){pn.textContent=`▼ COIN PENALTY: -${penalty} COINS`;pn.classList.add(‘vis’);}else pn.classList.remove(‘vis’);
-prevScreen=‘screen-gameover’;showScreen(‘screen-gameover’);
+  document.getElementById('over-number').textContent=state.secret;
+  document.getElementById('over-score').textContent=state.totalScore;
+  const el=document.getElementById('over-number');el.style.animation='none';el.offsetHeight;
+  el.style.animation='numReveal .5s steps(8,end) both .3s';el.style.opacity='0';
+  const sl=document.getElementById('streak-lost');
+  if(hadStreak){sl.textContent=`▲ WIN STREAK BROKEN`;sl.classList.add('vis');}else sl.classList.remove('vis');
+  const pn=document.getElementById('penalty-notice');
+  if(penalty>0){pn.textContent=`▼ COIN PENALTY: -${penalty} COINS`;pn.classList.add('vis');}else pn.classList.remove('vis');
+  prevScreen='screen-gameover';showScreen('screen-gameover');
 }
 function showFinale(){
-try{
-document.getElementById(‘finale-total’).textContent=state.totalScore.toLocaleString();
-const rankDiv=document.getElementById(‘finale-rank-display’);
-const r=getScoreRank(state.totalScore);
-if(rankDiv){
-rankDiv.innerHTML=`<span style="font-size:11px;letter-spacing:3px;color:var(--mut)">YOUR RANK:</span> <span class="rank-badge ${r.cls}">${r.label}</span>`;
-}
-const bd=document.getElementById(‘finale-breakdown’);
-if(bd){bd.innerHTML=’’;state.lvlScores.forEach((s,i)=>{const el=document.createElement(‘div’);el.className=‘finale-lvl’;el.innerHTML=`<div class="finale-lvl-num">LVL ${i+1}</div><div class="finale-lvl-score">${s}</div>`;bd.appendChild(el);});}
-}catch(uiErr){console.warn(‘Finale UI error:’,uiErr);}
-showScreen(‘screen-finale’);
-setTimeout(()=>sfxFinale(),400);
-updateTitleBar();
+  try{
+    document.getElementById('finale-total').textContent=state.totalScore.toLocaleString();
+    const rankDiv=document.getElementById('finale-rank-display');
+    const r=getScoreRank(state.totalScore);
+    if(rankDiv){
+      rankDiv.innerHTML=`<span style="font-size:11px;letter-spacing:3px;color:var(--mut)">YOUR RANK:</span> <span class="rank-badge ${r.cls}">${r.label}</span>`;
+    }
+    const bd=document.getElementById('finale-breakdown');
+    if(bd){bd.innerHTML='';state.lvlScores.forEach((s,i)=>{const el=document.createElement('div');el.className='finale-lvl';el.innerHTML=`<div class="finale-lvl-num">LVL ${i+1}</div><div class="finale-lvl-score">${s}</div>`;bd.appendChild(el);});}
+  }catch(uiErr){console.warn('Finale UI error:',uiErr);}
+  showScreen('screen-finale');
+  setTimeout(()=>sfxFinale(),400);
+  updateTitleBar();
 }
 
 /* ═══════════════════════════════════════════
-INIT
+   INIT
 ═══════════════════════════════════════════ */
 /* ── GLOBAL ERROR HANDLER ── */
-window.addEventListener(‘error’,function(e){
-console.error(’[NUMVOID]’,e.message,‘at’,e.filename,‘line’,e.lineno);
+window.addEventListener('error',function(e){
+  console.error('[NUMVOID]',e.message,'at',e.filename,'line',e.lineno);
 });
-window.addEventListener(‘unhandledrejection’,function(e){
-console.error(’[NUMVOID] Unhandled promise rejection:’,e.reason);
-e.preventDefault(); // Suppress uncaught error in console
+window.addEventListener('unhandledrejection',function(e){
+  console.error('[NUMVOID] Unhandled promise rejection:',e.reason);
+  e.preventDefault(); // Suppress uncaught error in console
 });
 
 loadSave();
@@ -1881,79 +1871,77 @@ updateTitleBar();
 updateCtrlBar();
 
 /* ═══════════════════════════════════════════
-UNIFIED MOBILE INPUT HANDLER
-Root cause of mobile tap failure:
-
-1. body::before/after had z-index:100/99 → overlapping all buttons (FIXED in CSS)
-1. No touchstart/pointerdown handlers on buttons (only onclick = delayed on mobile)
-1. Double-tap zoom interfering with rapid taps
-Fix: Unified pointerdown/touchstart delegation with instant visual feedback
+   UNIFIED MOBILE INPUT HANDLER
+   Root cause of mobile tap failure:
+   1. body::before/after had z-index:100/99 → overlapping all buttons (FIXED in CSS)
+   2. No touchstart/pointerdown handlers on buttons (only onclick = delayed on mobile)
+   3. Double-tap zoom interfering with rapid taps
+   Fix: Unified pointerdown/touchstart delegation with instant visual feedback
 ═══════════════════════════════════════════ */
 (function(){
-// Map of element selectors → handler functions
-// We use pointerdown for instant response (no 300ms delay)
-function getActionTarget(el){
-// Walk up to find actionable element
-let t=el;
-for(let i=0;i<5;i++){
-if(!t||t===document.body)break;
-if(t.matches&&t.matches(’.btn,.arsenal-btn,.bet-preset,.mode-btn,.ctrl-btn,[data-action]’))return t;
-t=t.parentElement;
-}
-return null;
-}
+  // Map of element selectors → handler functions
+  // We use pointerdown for instant response (no 300ms delay)
+  function getActionTarget(el){
+    // Walk up to find actionable element
+    let t=el;
+    for(let i=0;i<5;i++){
+      if(!t||t===document.body)break;
+      if(t.matches&&t.matches('.btn,.arsenal-btn,.bet-preset,.mode-btn,.ctrl-btn,[data-action]'))return t;
+      t=t.parentElement;
+    }
+    return null;
+  }
 
-function applyPressClass(el){
-el.classList.add(‘btn-pressed’);
-// Remove after short time
-setTimeout(()=>el.classList.remove(‘btn-pressed’),200);
-}
+  function applyPressClass(el){
+    el.classList.add('btn-pressed');
+    // Remove after short time
+    setTimeout(()=>el.classList.remove('btn-pressed'),200);
+  }
 
-// Intercept ALL pointer events at document level
-document.addEventListener(‘pointerdown’,function(e){
-const t=getActionTarget(e.target);
-if(t&&!t.disabled){
-applyPressClass(t);
-// Prevent ghost click delay on mobile
-if(e.pointerType===‘touch’){
-// Don’t preventDefault here — let click fire for onclick handlers
-// But mark the element as pointer-active
-t._ptrActive=true;
-}
-}
-},{passive:true});
+  // Intercept ALL pointer events at document level
+  document.addEventListener('pointerdown',function(e){
+    const t=getActionTarget(e.target);
+    if(t&&!t.disabled){
+      applyPressClass(t);
+      // Prevent ghost click delay on mobile
+      if(e.pointerType==='touch'){
+        // Don't preventDefault here — let click fire for onclick handlers
+        // But mark the element as pointer-active
+        t._ptrActive=true;
+      }
+    }
+  },{passive:true});
 
-// Fix double-tap zoom without breaking buttons
-let lastTap=0;
-document.addEventListener(‘touchend’,function(e){
-const t=getActionTarget(e.target);
-if(t){
-// Prevent double-tap zoom on interactive elements
-const now=Date.now();
-if(now-lastTap<350){e.preventDefault();}
-lastTap=now;
-// For elements that had pointer-active, ensure click fires quickly
-if(t._ptrActive){
-t._ptrActive=false;
-// Prevent the 300ms delay by triggering synthetic click if needed
-if(!t.matches(‘input’)){
-e.preventDefault();
-t.click();
-}
-}
-}
-},{passive:false});
+  // Fix double-tap zoom without breaking buttons
+  let lastTap=0;
+  document.addEventListener('touchend',function(e){
+    const t=getActionTarget(e.target);
+    if(t){
+      // Prevent double-tap zoom on interactive elements
+      const now=Date.now();
+      if(now-lastTap<350){e.preventDefault();}
+      lastTap=now;
+      // For elements that had pointer-active, ensure click fires quickly
+      if(t._ptrActive){
+        t._ptrActive=false;
+        // Prevent the 300ms delay by triggering synthetic click if needed
+        if(!t.matches('input')){
+          e.preventDefault();
+          t.click();
+        }
+      }
+    }
+  },{passive:false});
 
-// Prevent context menu on long press (mobile)
-document.addEventListener(‘contextmenu’,function(e){
-if(getActionTarget(e.target))e.preventDefault();
-},{passive:false});
+  // Prevent context menu on long press (mobile)
+  document.addEventListener('contextmenu',function(e){
+    if(getActionTarget(e.target))e.preventDefault();
+  },{passive:false});
 })();
 
 // Volume slider init
-const vs=document.getElementById(‘vol-slider’);
+const vs=document.getElementById('vol-slider');
 if(vs){vs.value=50;updateVolSliderGradient(50);}
 </script>
-
 </body>
 </html>
